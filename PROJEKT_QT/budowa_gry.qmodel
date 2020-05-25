@@ -118,31 +118,9 @@
                           </DElement>
                          </base-DElement>
                          <object>{24c4a69c-df78-4d1d-b6da-1adc9283e3a0}</object>
-                         <name>Player 1</name>
-                         <pos>x:305;y:410</pos>
-                         <rect>x:-60;y:-70;w:120;h:140</rect>
-                         <auto-sized>false</auto-sized>
-                         <visual-role>0</visual-role>
-                        </DObject>
-                       </base-DObject>
-                       <show-all-members>true</show-all-members>
-                      </DClass>
-                     </instance>
-                    </item>
-                    <item>
-                     <instance type="DClass">
-                      <DClass>
-                       <base-DObject>
-                        <DObject>
-                         <base-DElement>
-                          <DElement>
-                           <uid>{fdd04db9-b19b-402d-bfe6-d0f73369621c}</uid>
-                          </DElement>
-                         </base-DElement>
-                         <object>{cf57efa0-fe55-4265-bff8-68e653bce31c}</object>
-                         <name>Player 2</name>
-                         <pos>x:70;y:405</pos>
-                         <rect>x:-50;y:-70;w:100;h:140</rect>
+                         <name>Player </name>
+                         <pos>x:110;y:405</pos>
+                         <rect>x:-60;y:-80;w:120;h:160</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -175,7 +153,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1590431303945</last-modified>
+                  <last-modified>1590431997160</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -652,49 +630,56 @@
                     <uid>{24c4a69c-df78-4d1d-b6da-1adc9283e3a0}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>Player 1</name>
+                  <name>Player </name>
                  </MObject>
                 </base-MObject>
                 <members>
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{90c01caa-4aa0-49f5-a468-472ff604430f}</uid>
+                    <uid>{bfc17221-fe11-446d-bc1d-fa84767a2ec9}</uid>
                     <type>1</type>
                     <declaration>-health_points</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{882179eb-1003-4c91-9196-ad9963e8ec97}</uid>
+                    <uid>{76e4554c-8d9b-454d-868b-d7b503860756}</uid>
                     <type>2</type>
                     <declaration>+animate()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{41fc038d-b026-4dd7-bc99-fcb6ddc49f39}</uid>
+                    <uid>{9eaa78e2-93b3-41c7-a6be-5cdb705f2d8e}</uid>
                     <type>2</type>
                     <declaration>+move_sprite()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{12f16d5c-3135-402b-8eff-1231f2b6eba3}</uid>
+                    <uid>{29936f76-49bc-4410-841e-8272925695a2}</uid>
                     <type>2</type>
                     <declaration>+colisions()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{fcee1e7a-b843-4128-a8d7-717a431068b3}</uid>
+                    <uid>{e09339ee-6f10-485a-8dee-1802146b01fc}</uid>
                     <type>2</type>
                     <declaration>+shoot()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b2688dd5-27ae-4cd6-a37f-199d6c13739a}</uid>
+                    <uid>{a0820826-2062-433d-9c5f-b8feb8233065}</uid>
+                    <type>2</type>
+                    <declaration>+ustaw_Teksture()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{cdf87c90-17de-4d4d-b030-97a2534081e4}</uid>
                     <type>2</type>
                     <declaration>+check_hp()</declaration>
                    </MClassMember>
@@ -726,42 +711,42 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{ffbb006c-b9c8-407c-9053-57ab4fca3350}</uid>
+                    <uid>{02e64d79-2182-4c91-b83d-a3c1f99ed971}</uid>
                     <type>1</type>
                     <declaration>-health_points</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{68391b76-7115-4a43-9723-71073e8c23c2}</uid>
+                    <uid>{a75f0ccc-c6f2-4b66-a9fd-be3d7a70bc79}</uid>
                     <type>2</type>
                     <declaration>+animate()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ca9c38ef-09ff-4f12-a9cf-61a2f45853b2}</uid>
+                    <uid>{3fd33a66-206e-4ba7-a8ce-a4103c39a52e}</uid>
                     <type>2</type>
                     <declaration>+move_sprite()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f45bede4-c7fe-4c69-afec-b3ba185f7d9c}</uid>
+                    <uid>{7727332c-cf44-43aa-9480-4b2af1481e1f}</uid>
                     <type>2</type>
                     <declaration>+collisions()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{92fb0a20-47d5-4c4a-b710-e7161c0d8df4}</uid>
+                    <uid>{c28eed57-95cc-4536-82dc-3ef0e47b7a83}</uid>
                     <type>2</type>
                     <declaration>+shoot()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b8694444-0a8e-4bd7-a923-cfa42d910c58}</uid>
+                    <uid>{b03313f7-dd18-4cca-ab9c-d0d69a2f6b5c}</uid>
                     <type>2</type>
                     <declaration>+check_hp()</declaration>
                    </MClassMember>
