@@ -301,7 +301,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1590619013438</last-modified>
+                  <last-modified>1590694336762</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -1263,7 +1263,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{811be8c2-dc18-4c7e-8203-425ed3ba14bb}</uid>
+                    <uid>{1deb3535-e05b-46bc-9581-c60086129393}</uid>
                     <type>2</type>
                     <declaration>+loop()</declaration>
                    </MClassMember>
@@ -1325,35 +1325,35 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{78711a01-d531-4925-8381-9ee04e95608a}</uid>
+                    <uid>{8f680d9a-f356-442a-9c29-0479d0a35c9d}</uid>
                     <type>1</type>
                     <declaration>-frame_time</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2fcb42f9-ce66-43f3-983e-6489d472ed30}</uid>
+                    <uid>{bdc7a744-8094-4565-bf63-f08ab26619a7}</uid>
                     <type>1</type>
                     <declaration>-Player Player</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0eddac13-80f5-45fb-b2cf-693d7f49e310}</uid>
+                    <uid>{7013ccd0-6ac0-4827-99aa-438b540bbcd7}</uid>
                     <type>2</type>
                     <declaration>+update_colisions()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a3083995-a2d0-4c17-8178-2e8aec59a69b}</uid>
+                    <uid>{9c261694-630f-4786-ac85-19d1725b1781}</uid>
                     <type>2</type>
                     <declaration>+check_hp()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{6a441680-c428-4c80-932f-f796d4f28c3d}</uid>
+                    <uid>{768c565e-3cd7-40c0-a8bf-24b6ddc9be95}</uid>
                     <type>2</type>
                     <declaration>+death()</declaration>
                    </MClassMember>
@@ -1415,56 +1415,56 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{c66f0ca5-ec16-4118-b391-d7813c9fc04c}</uid>
+                    <uid>{914155b0-24bb-4f82-977e-3f4caa4d7c3c}</uid>
                     <type>1</type>
                     <declaration>- sf::IntRect startRect</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{35418b5f-12bf-4be1-af16-2aedbfd1d592}</uid>
+                    <uid>{8b46498f-4913-4305-95a4-db5d09627a5d}</uid>
                     <type>1</type>
                     <declaration>- sf::IntRect currentRect</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{fc99bd92-ab62-4c3e-bb1d-576b43f2ff13}</uid>
+                    <uid>{01365641-69df-4fe9-ab97-2851a598b3b9}</uid>
                     <type>1</type>
                     <declaration>- sf::IntRect endRect</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{86a8099b-b11a-43ef-9d0a-ba7c5c85c53e}</uid>
+                    <uid>{26105b5f-18a8-4e5d-8b62-a59d90ea89d0}</uid>
                     <type>1</type>
                     <declaration>-velocity</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{db38278b-aa95-4c73-a550-f86eb8511233}</uid>
+                    <uid>{b6dc4528-cae3-4a36-a3b6-9ee4bd7de3cd}</uid>
                     <type>2</type>
                     <declaration>+add_annimate()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a517a04e-c27a-44d2-b5e6-916a91062dd6}</uid>
+                    <uid>{0a000360-7adb-463d-bdf0-21cf84ee823b}</uid>
                     <type>2</type>
                     <declaration>+play_animate()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f80c08a5-7b3e-47b6-bad4-30a3dd1f8dfe}</uid>
+                    <uid>{aee20419-6930-44aa-80ee-515d5c071bc1}</uid>
                     <type>2</type>
                     <declaration>+move_player(klawisze)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2dd93c29-f663-4b5c-8c6e-50d3149a8bff}</uid>
+                    <uid>{8ed8e510-55d3-438c-b05f-a7af753fb171}</uid>
                     <type>1</type>
                     <declaration>+shoot</declaration>
                    </MClassMember>
@@ -1617,35 +1617,35 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{73a18326-f811-4ef0-a97d-29acec097100}</uid>
+                    <uid>{f0f721d4-a069-4572-b147-9302044fd59a}</uid>
                     <type>1</type>
                     <declaration>-width</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{953d384b-962b-450a-a2b4-200fc86fdd4b}</uid>
+                    <uid>{af8dcd07-566c-4e4e-961c-1fa15f5c6e6a}</uid>
                     <type>1</type>
                     <declaration>-height</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1d6d2df6-280b-43a3-8e9f-7ed83856541d}</uid>
+                    <uid>{c666c603-3d9f-484f-b252-48b4ba5044c6}</uid>
                     <type>2</type>
                     <declaration>+change_scene()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ae071221-e877-45bc-a9ee-1ae092a5aa6a}</uid>
+                    <uid>{aefa8ca7-2b66-493e-b83b-e2a61bdf8b42}</uid>
                     <type>2</type>
                     <declaration>+check_objects()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b2ee82b1-0cb5-4e3b-a03c-5de1ea2e8dfb}</uid>
+                    <uid>{a3880767-dfbd-44c4-8e6a-4ac5e6f7bea0}</uid>
                     <type>2</type>
                     <declaration>+draw(obiekty i tekstury)</declaration>
                    </MClassMember>
@@ -1707,30 +1707,23 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{768f4506-3d76-4990-9924-5625cccf7733}</uid>
+                    <uid>{1071ed50-7a0b-475f-ac83-343adc6e2655}</uid>
                     <type>1</type>
                     <declaration>hp_texture</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b69a83d1-b1fa-4412-9718-a4f12afaaff2}</uid>
+                    <uid>{5c34182d-0518-4ac9-8e05-1189f7a72d2a}</uid>
                     <type>1</type>
                     <declaration>wall_texture</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f02e4b4d-223d-4356-8c2d-92244abc4b31}</uid>
+                    <uid>{144b1245-c326-4017-8e58-2d2bc4b1b9f3}</uid>
                     <type>1</type>
                     <declaration>background_texture</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{bc445988-2cce-4d4e-b299-b864bb71a5b2}</uid>
-                    <type>1</type>
-                    <declaration>gun_texture</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
