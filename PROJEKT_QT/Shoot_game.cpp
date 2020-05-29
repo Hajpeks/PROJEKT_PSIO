@@ -1,22 +1,36 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+#include "Players.h"
 #include <iostream>
 #include <vector>
 
 
 class Game{
-    std::vector<sf::RectangleShape> shapes;
+    float dt;
+    std::vector<sf::Sprite> player;
     sf::RenderWindow window_;
 public:
     Game(int W, int H): window_(sf::VideoMode(W,H),"SHOOT_Game")
     {
         sf::RenderWindow window(sf::VideoMode(800,600),"Shooting Game");
 
-        sf::RectangleShape prostokaty(sf::Vector2f(120,200));
-        prostokaty.setTextureRect(sf::IntRect(300,300,100,200));
-        prostokaty.setPosition(500.0, 400.0);
-        prostokaty.setFillColor(sf::Color::Red);
-        shapes.emplace_back(std::move(prostokaty));
+        sf::Texture player;
+        if (!player.loadFromFile("soldier.png")) {
+            std::cerr << "Could not load texture" << std::endl;
+             throw("Could not load texture");
+        }
+               Player p1(player);
+//               p1.setPosition(500,400);
+//               p1.setScale(3,3);
+               p1.add_animation(15,0,0,2,80,110);
+               p1.play_animation(dt);
+       // sprite.setTexture(player);
+
+//        sf::RectangleShape prostokaty(sf::Vector2f(120,200));
+//        prostokaty.setTextureRect(sf::IntRect(300,300,100,200));
+//        prostokaty.setPosition(500.0, 400.0);
+//        prostokaty.setFillColor(sf::Color::Red);
+//        shapes.emplace_back(std::move(prostokaty));
     }
     void loop(){
 
@@ -38,7 +52,7 @@ public:
 
             // draw everything here...
 
-            for(auto &el :shapes)
+            for(auto &el :player)
             {
                 window_.draw(el);
             }
@@ -51,7 +65,7 @@ public:
 int main() {
 
   Game test(1920,1080);
- // test.loop();
+  test.loop();
   test.draw_all();
 
  return 0;
