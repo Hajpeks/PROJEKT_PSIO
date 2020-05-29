@@ -8,7 +8,7 @@ SOURCES += \
         Items.cpp \
         Maps.cpp \
         Players.cpp \
-        main.cpp
+        Shoot_game.cpp
 INCLUDEPATH += "C:/SFML/include"
 LIBS += -L"C:/SFML/lib"
 CONFIG(debug, debug|release){
