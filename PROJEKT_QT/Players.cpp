@@ -3,38 +3,29 @@
 #include <iostream>
 #include "Players.h"
 
-Player::Player(sf::Texture &animation_sheet)
+Player::Player(sf::Texture *texture,sf::Vector2u imageCount,float switchTime)
 {
-    this->setTexture(animation_sheet);
+    this->imageCount=imageCount;
+    this->switchTime=switchTime;
+    totalTime=0.0f;
+    currentImage.x=0;
+
+    uvRect.width=texture->getSize().x/float(imageCount.x);
+    uvRect.height=texture->getSize().y/float(imageCount.y);
 }
-void Player::add_animation(float frame_rate, const int start_x, const int start_y, const int cage_numbers, const int width, const int height)
+void Player::Update(int row,float DeltaTime)
 {
-    this->framerate=frame_rate;
-    this->cage_width=width;
-
-    this->begin_cage=sf::IntRect(start_x,start_y,width,height);
-
-    this->actual_cage=this->begin_cage;
-
-    this->end_cage=sf::IntRect(start_x+width,start_y,width*(cage_numbers-1),height);
-
-    this->setTextureRect(begin_cage);
-}
-void Player::play_animation(float &dt)
-{
-    this->time+=dt;
-    if(time>1/this->framerate)
+    currentImage.y=row;
+    totalTime+=DeltaTime;
+    if(totalTime>=switchTime)
     {
-        time=0;
-
-       if(actual_cage!=end_cage)
-       {
-           actual_cage.left+=this->cage_width;
-       }
-       else
-       {
-           this->end_cage=this->begin_cage;
-       }
+        totalTime -=switchTime;
+        currentImage.x++;
+        if(currentImage.x>=imageCount.x)
+        {
+            currentImage.x=0;
+        }
     }
-    this->setTextureRect(this->actual_cage);
+    uvRect.left=currentImage.x*uvRect.width;
+    uvRect.top=currentImage.y*uvRect.height;
 }

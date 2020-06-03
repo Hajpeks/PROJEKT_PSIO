@@ -8,20 +8,18 @@
 class Player: public sf::Sprite{
 
 private:
-    float velocity_y=0;
-    float cage_width=0;
-    float framerate=0;
+   float totalTime;
+   float switchTime;
 
-    sf::IntRect begin_cage;
-    sf::IntRect actual_cage;
-    sf::IntRect end_cage;
-
-    float time=0;
+    sf::Vector2u imageCount;
+    sf::Vector2u currentImage;
 
 public:
-    Player(sf::Texture &player_animation);
+    Player(sf::Texture *player_animation,sf::Vector2u imageCount, float switchTime);
+   // ~Player();
 
-    void add_animation(float frame_rate,const int start_x, const int start_y,const int cage_numbers, const int width, const int height);
+    void Update(int row,float DeltaTime);
 
-    void play_animation(float &dt);
+public:
+    sf::IntRect uvRect;
 };
