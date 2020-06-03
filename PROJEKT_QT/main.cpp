@@ -68,18 +68,33 @@ int main() {
 //    test.loop();
 //    test.draw_all();
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "lab9", sf::Style::Close | sf::Style::Titlebar);
+
     sf::RectangleShape player(sf::Vector2f(80,120));
     player.setPosition(500.0f,200.0f);
+    player.setScale(3,3);
+
+    sf::RectangleShape zombie(sf::Vector2f(80,120));
+    zombie.setPosition(1000.0f,500.0f);
+    zombie.setScale(3,3);
+
+
     //window.setVerticalSyncEnabled(true);
     sf::Event sfEvent;
     sf::Clock clock;
     float DeltaTime;
 
-    sf::Texture playerTexture;
-    if (!playerTexture.loadFromFile("soldier.png")) { return -1; }
-    player.setTexture(&playerTexture);
+    sf::Texture soldierTexture;
+    if (!soldierTexture.loadFromFile("soldier.png")) { return -1; }
+    player.setTexture(&soldierTexture);
 
-    Player animation(&playerTexture,sf::Vector2u(2,1),0.3);
+    sf::Texture zombieTexture;
+    if (!zombieTexture.loadFromFile("zombie.png")) { return -1; }
+    zombie.setTexture(&zombieTexture);
+
+
+    Player soldierAnimation(&soldierTexture,sf::Vector2u(2,1),0.3);
+
+    Player zombieAnimation(&zombieTexture,sf::Vector2u(2,1),0.3);
 
 
 
@@ -95,12 +110,15 @@ int main() {
         }
 
 
-         animation.Update(0,DeltaTime);
-         player.setTextureRect(animation.uvRect);
+         soldierAnimation.Update(0,DeltaTime);
+         player.setTextureRect(soldierAnimation.uvRect);
 
+         zombieAnimation.Update(0,DeltaTime);
+         zombie.setTextureRect(zombieAnimation.uvRect);
 
         window.clear();
         window.draw(player);
+        window.draw(zombie);
         window.display();
     }
 
