@@ -1,9 +1,10 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-#include "Players.h"
 #include <iostream>
 #include <vector>
 
+//#include "Animation.h"
+#include "Player.h"
 
 //class Game{
 //    float DeltaTime=0.0f;
@@ -69,34 +70,29 @@ int main() {
 //    test.draw_all();
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "lab9", sf::Style::Close | sf::Style::Titlebar);
 
-    sf::RectangleShape player(sf::Vector2f(80,120));
-    player.setPosition(500.0f,200.0f);
-    player.setScale(3,3);
 
-    sf::RectangleShape zombie(sf::Vector2f(80,120));
-    zombie.setPosition(1000.0f,500.0f);
-    zombie.setScale(3,3);
+    //    sf::RectangleShape zombie(sf::Vector2f(80,120));
+    //    zombie.setPosition(1000.0f,500.0f);
+    //    zombie.setScale(3,3);
 
 
-    //window.setVerticalSyncEnabled(true);
+        sf::Texture soldierTexture;
+        if (!soldierTexture.loadFromFile("soldier.png")) { return -1; }
+
+
+//    sf::Texture zombieTexture;
+//    if (!zombieTexture.loadFromFile("zombie.png")) { return -1; }
+//    zombie.setTexture(&zombieTexture);
+
+
+    Player player(&soldierTexture,sf::Vector2u(2,1),0.3,200.0f);
+
+//    Player zombieAnimation(&zombieTexture,sf::Vector2u(2,1),0.3);
+
+
     sf::Event sfEvent;
     sf::Clock clock;
     float DeltaTime;
-
-    sf::Texture soldierTexture;
-    if (!soldierTexture.loadFromFile("soldier.png")) { return -1; }
-    player.setTexture(&soldierTexture);
-
-    sf::Texture zombieTexture;
-    if (!zombieTexture.loadFromFile("zombie.png")) { return -1; }
-    zombie.setTexture(&zombieTexture);
-
-
-    Player soldierAnimation(&soldierTexture,sf::Vector2u(2,1),0.3);
-
-    Player zombieAnimation(&zombieTexture,sf::Vector2u(2,1),0.3);
-
-
 
     //Main gameplay loop
     while (window.isOpen()) {
@@ -110,15 +106,14 @@ int main() {
         }
 
 
-         soldierAnimation.Update(0,DeltaTime);
-         player.setTextureRect(soldierAnimation.uvRect);
 
-         zombieAnimation.Update(0,DeltaTime);
-         zombie.setTextureRect(zombieAnimation.uvRect);
+           player.Update(DeltaTime);
+//         zombieAnimation.Update(0,DeltaTime);
+//         zombie.setTextureRect(zombieAnimation.uvRect);
 
-        window.clear();
-        window.draw(player);
-        window.draw(zombie);
+        window.clear();      
+//      window.draw(zombie);
+        player.Draw(window);
         window.display();
     }
 

@@ -4,10 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        Game_Objects.cpp \
+        Animation.cpp \
         Items.cpp \
         Maps.cpp \
-        Players.cpp \
+        Player.cpp \
         main.cpp
 INCLUDEPATH += "C:/SFML/include"
 LIBS += -L"C:/SFML/lib"
@@ -20,7 +20,7 @@ DISTFILES += \
     budowa_gry.qmodel
 
 HEADERS += \
-    Game_Objects.h \
+    Animation.h \
     Items.h \
     Maps.h \
-    Players.h
+    Player.h

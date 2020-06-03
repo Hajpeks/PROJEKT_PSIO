@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-class Player: public sf::Sprite{
+class Animation: public sf::Sprite{
 
 private:
    float totalTime;
@@ -15,10 +15,10 @@ private:
     sf::Vector2u currentImage;
 
 public:
-    Player(sf::Texture *player_animation,sf::Vector2u imageCount, float switchTime);
+    Animation(sf::Texture *player_animation,sf::Vector2u imageCount, float switchTime);
    // ~Player();
 
-    void Update(int row,float DeltaTime);
+    void Update(int row,float DeltaTime,bool faceRight);
 
 public:
     sf::IntRect uvRect;

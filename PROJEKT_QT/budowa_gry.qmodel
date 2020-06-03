@@ -110,7 +110,7 @@
                           </DElement>
                          </base-DElement>
                          <object>{64db9853-0ed1-4fda-8e89-c1d42b8dc617}</object>
-                         <name>Game_Objects</name>
+                         <name>Player</name>
                          <pos>x:200;y:460</pos>
                          <rect>x:-70;y:-65;w:140;h:130</rect>
                          <auto-sized>false</auto-sized>
@@ -132,7 +132,7 @@
                           </DElement>
                          </base-DElement>
                          <object>{dfd00413-9868-46b6-96db-ff9efec197f6}</object>
-                         <name>Players</name>
+                         <name>animation</name>
                          <pos>x:85;y:725</pos>
                          <rect>x:-70;y:-85;w:140;h:170</rect>
                          <auto-sized>false</auto-sized>
@@ -253,7 +253,7 @@
                          </base-DElement>
                          <object>{a81eb222-00d3-4730-8ad6-a4a41535dc47}</object>
                          <name>Scene</name>
-                         <pos>x:455;y:605</pos>
+                         <pos>x:465;y:610</pos>
                          <rect>x:-75;y:-55;w:150;h:110</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
@@ -301,7 +301,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1590694336762</last-modified>
+                  <last-modified>1591186505686</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -1288,7 +1288,7 @@
                     <uid>{64db9853-0ed1-4fda-8e89-c1d42b8dc617}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>Game_Objects</name>
+                  <name>Player</name>
                   <relations>
                    <handles>
                     <handles>
@@ -1325,35 +1325,35 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{8f680d9a-f356-442a-9c29-0479d0a35c9d}</uid>
+                    <uid>{5330fd18-c586-4e00-a36d-ff7162cf21f4}</uid>
                     <type>1</type>
                     <declaration>-frame_time</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{bdc7a744-8094-4565-bf63-f08ab26619a7}</uid>
+                    <uid>{5aeac79f-d51b-4bcf-915b-fa31227a5009}</uid>
                     <type>1</type>
                     <declaration>-Player Player</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{7013ccd0-6ac0-4827-99aa-438b540bbcd7}</uid>
+                    <uid>{2d593c22-6c01-43ed-a3e2-7b896b4946de}</uid>
                     <type>2</type>
                     <declaration>+update_colisions()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9c261694-630f-4786-ac85-19d1725b1781}</uid>
+                    <uid>{0acc3371-75cc-4c78-924d-3ccd31d64406}</uid>
                     <type>2</type>
                     <declaration>+check_hp()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{768c565e-3cd7-40c0-a8bf-24b6ddc9be95}</uid>
+                    <uid>{169cd4cd-7905-4963-bb28-d05c690fe588}</uid>
                     <type>2</type>
                     <declaration>+death()</declaration>
                    </MClassMember>
@@ -1378,7 +1378,7 @@
                     <uid>{dfd00413-9868-46b6-96db-ff9efec197f6}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>Players</name>
+                  <name>animation</name>
                   <relations>
                    <handles>
                     <handles>
@@ -1415,56 +1415,56 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{914155b0-24bb-4f82-977e-3f4caa4d7c3c}</uid>
+                    <uid>{5373cedb-55c0-449d-a6d9-a08efc77f9ac}</uid>
                     <type>1</type>
                     <declaration>- sf::IntRect startRect</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8b46498f-4913-4305-95a4-db5d09627a5d}</uid>
+                    <uid>{257d7fb4-130d-4820-be4d-b1cfed099dd7}</uid>
                     <type>1</type>
                     <declaration>- sf::IntRect currentRect</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{01365641-69df-4fe9-ab97-2851a598b3b9}</uid>
+                    <uid>{a5f05acb-5365-420b-ac92-391e6861fa04}</uid>
                     <type>1</type>
                     <declaration>- sf::IntRect endRect</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{26105b5f-18a8-4e5d-8b62-a59d90ea89d0}</uid>
+                    <uid>{3b7ef6b5-8bda-424e-a005-0bea60277162}</uid>
                     <type>1</type>
                     <declaration>-velocity</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b6dc4528-cae3-4a36-a3b6-9ee4bd7de3cd}</uid>
+                    <uid>{e15a95da-a89e-4ff5-9a5d-371e5cd66382}</uid>
                     <type>2</type>
                     <declaration>+add_annimate()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0a000360-7adb-463d-bdf0-21cf84ee823b}</uid>
+                    <uid>{0c039cdf-b9b4-467e-a10f-5c5aa3fccb73}</uid>
                     <type>2</type>
                     <declaration>+play_animate()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{aee20419-6930-44aa-80ee-515d5c071bc1}</uid>
+                    <uid>{ac7f6b1b-a840-48bd-840f-d05f89061020}</uid>
                     <type>2</type>
                     <declaration>+move_player(klawisze)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8ed8e510-55d3-438c-b05f-a7af753fb171}</uid>
+                    <uid>{3e2f4425-5754-4433-80e3-4b70d60105ac}</uid>
                     <type>1</type>
                     <declaration>+shoot</declaration>
                    </MClassMember>
@@ -1707,21 +1707,21 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{1071ed50-7a0b-475f-ac83-343adc6e2655}</uid>
+                    <uid>{7003cd82-3e8b-4bb9-a65b-c5afe843d516}</uid>
                     <type>1</type>
                     <declaration>hp_texture</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{5c34182d-0518-4ac9-8e05-1189f7a72d2a}</uid>
+                    <uid>{278c0b78-3fc1-4761-83db-070f352481d5}</uid>
                     <type>1</type>
                     <declaration>wall_texture</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{144b1245-c326-4017-8e58-2d2bc4b1b9f3}</uid>
+                    <uid>{c81dd546-60e7-4ca2-b468-5d8718e1084e}</uid>
                     <type>1</type>
                     <declaration>background_texture</declaration>
                    </MClassMember>

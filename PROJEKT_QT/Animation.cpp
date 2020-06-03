@@ -1,9 +1,9 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Players.h"
+#include "Animation.h"
 
-Player::Player(sf::Texture *texture,sf::Vector2u imageCount,float switchTime)
+Animation::Animation(sf::Texture *texture,sf::Vector2u imageCount,float switchTime)
 {
     this->imageCount=imageCount;
     this->switchTime=switchTime;
@@ -13,7 +13,7 @@ Player::Player(sf::Texture *texture,sf::Vector2u imageCount,float switchTime)
     uvRect.width=texture->getSize().x/float(imageCount.x);
     uvRect.height=texture->getSize().y/float(imageCount.y);
 }
-void Player::Update(int row,float DeltaTime)
+void Animation::Update(int row,float DeltaTime,bool faceRight)
 {
     currentImage.y=row;
     totalTime+=DeltaTime;
@@ -26,6 +26,16 @@ void Player::Update(int row,float DeltaTime)
             currentImage.x=0;
         }
     }
-    uvRect.left=currentImage.x*uvRect.width;
+
     uvRect.top=currentImage.y*uvRect.height;
+    if(faceRight)
+    {
+         uvRect.left=currentImage.x*uvRect.width;
+         uvRect.width=std::abs(uvRect.width);
+    }
+    else
+    {
+        uvRect.left=(currentImage.x+1)*std::abs(uvRect.width);
+        uvRect.width= -std::abs(uvRect.width);
+    }
 }
