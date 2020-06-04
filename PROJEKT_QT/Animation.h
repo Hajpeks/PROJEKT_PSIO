@@ -16,7 +16,7 @@ private:
 
 public:
     Animation(sf::Texture *player_animation,sf::Vector2u imageCount, float switchTime);
-   // ~Player();
+
 
     void Update(int row,float DeltaTime,bool faceRight);
 

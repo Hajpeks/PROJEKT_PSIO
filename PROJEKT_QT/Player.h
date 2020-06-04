@@ -7,13 +7,16 @@
 class Player
 {
 public:
-    Player(sf::Texture *texture,sf::Vector2u imageCount, float switchTime,float speed);
+    Player(sf::Texture *texture,/*sf::Texture *texture1,*/sf::Vector2u imageCount, float switchTime,float speed);
     ~Player();
+    Player(sf::Vector2u imageCount, float switchTime,float speed,sf::Texture *texture1);
 
-    void Update(float DeltaTime);
+    void UpdateB1(float DeltaTime);
+    void UpdateB2(float DeltaTime);
     void Draw(sf::RenderWindow &window);
 private:
-    sf::RectangleShape body;
+    sf::RectangleShape body1;
+    sf::RectangleShape body2;
     Animation animation;
     unsigned int row;
     float speed;

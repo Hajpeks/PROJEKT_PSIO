@@ -9,20 +9,28 @@ Player::Player(sf::Texture *texture,sf::Vector2u imageCount, float switchTime,fl
  this->speed=speed;
  row=0;
  faceRight=true;
- body.setSize(sf::Vector2f(80,120));
- body.setPosition(500.0f,200.0f);
- body.setScale(3,3);
- body.setTexture(texture);
+ body1.setSize(sf::Vector2f(80,120));
+ body1.setPosition(500.0f,200.0f);
+ body1.setScale(2,2);
+ body1.setTexture(texture);
 
- //    sf::RectangleShape zombie(sf::Vector2f(80,120));
- //    zombie.setPosition(1000.0f,500.0f);
- //    zombie.setScale(3,3);
+}
+Player::Player(sf::Vector2u imageCount,float switchTime,float speed,sf::Texture *texture1):
+    animation(texture1,imageCount,switchTime)
+{
+     this->speed=speed;
+     row=0;
+     faceRight=true;
+     body2.setSize(sf::Vector2f(80,120));
+     body2.setPosition(1100,500);
+     body2.setScale(2,2);
+     body2.setTexture(texture1);
 }
 Player::~Player()
 {
 
 }
-void Player::Update(float DeltaTime)
+void Player::UpdateB1(float DeltaTime)
 {
     sf::Vector2f movement(0.0f,0.0f);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
@@ -45,15 +53,48 @@ void Player::Update(float DeltaTime)
     {
         faceRight=true;
     }
-    else
+    else if(movement.x<0.0f)
     {
         faceRight=false;
     }
     animation.Update(row,DeltaTime,faceRight);
-    body.setTextureRect(animation.uvRect);
-    body.move(movement);
+    body1.setTextureRect(animation.uvRect);
+    body1.move(movement);
+}
+
+void Player::UpdateB2(float DeltaTime)
+{
+    sf::Vector2f movement(0.0f,0.0f);
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    {
+        movement.x -=speed*DeltaTime;
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    {
+        movement.x +=speed*DeltaTime;
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    {
+        movement.y -=speed*DeltaTime;
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    {
+        movement.y +=speed*DeltaTime;
+    }
+    if(movement.x>0.0f)
+    {
+        faceRight=false;
+    }
+    else if(movement.x<0.0f)
+    {
+        faceRight=true;
+    }
+    animation.Update(row,DeltaTime,faceRight);
+    body2.setTextureRect(animation.uvRect);
+    body2.move(movement);
 }
 void Player::Draw(sf::RenderWindow &window)
 {
-    window.draw(body);
+    window.draw(body1);
+    window.draw(body2);
 }

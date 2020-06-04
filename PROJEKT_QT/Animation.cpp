@@ -12,6 +12,7 @@ Animation::Animation(sf::Texture *texture,sf::Vector2u imageCount,float switchTi
 
     uvRect.width=texture->getSize().x/float(imageCount.x);
     uvRect.height=texture->getSize().y/float(imageCount.y);
+
 }
 void Animation::Update(int row,float DeltaTime,bool faceRight)
 {
