@@ -8,7 +8,7 @@
 
 int main() {
 
-    sf::RenderWindow window(sf::VideoMode(1920, 1080), "lab9", sf::Style::Close | sf::Style::Titlebar);
+    sf::RenderWindow window(sf::VideoMode(1920, 1080), "GAME", sf::Style::Close | sf::Style::Titlebar);
 
 
     sf::Texture soldierTexture;
@@ -18,9 +18,9 @@ int main() {
     if (!zombieTexture.loadFromFile("zombie.png")) { return -1; }
 
 
-    Player player(&soldierTexture,sf::Vector2u(2,1),0.3,200.0f);
+    Player player(&soldierTexture,sf::Vector2u(2,1),0.3,300.0f);
 
-    Player Zombie(sf::Vector2u(2,1),0.3,200.0f,&zombieTexture);
+    Player Zombie(sf::Vector2u(2,1),0.3,300.0f,&zombieTexture);
 
 
     sf::Event sfEvent;
@@ -40,8 +40,8 @@ int main() {
 
 
 
-           player.UpdateB1(DeltaTime);
-           Zombie.UpdateB2(DeltaTime);
+        player.UpdateB1(DeltaTime);
+        Zombie.UpdateB2(DeltaTime);
 
 
 

@@ -10,8 +10,8 @@ Player::Player(sf::Texture *texture,sf::Vector2u imageCount, float switchTime,fl
  row=0;
  faceRight=true;
  body1.setSize(sf::Vector2f(80,120));
- body1.setPosition(500.0f,200.0f);
- body1.setScale(2,2);
+ body1.setPosition(100.0f,800.0f);
+ body1.setScale(1.5,1.5);
  body1.setTexture(texture);
 
 }
@@ -22,8 +22,8 @@ Player::Player(sf::Vector2u imageCount,float switchTime,float speed,sf::Texture 
      row=0;
      faceRight=true;
      body2.setSize(sf::Vector2f(80,120));
-     body2.setPosition(1100,500);
-     body2.setScale(2,2);
+     body2.setPosition(1700,20);
+     body2.setScale(1.5,1.5);
      body2.setTexture(texture1);
 }
 Player::~Player()
