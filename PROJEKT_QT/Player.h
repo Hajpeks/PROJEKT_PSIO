@@ -7,7 +7,7 @@
 class Player
 {
 public:
-    Player(sf::Texture *texture,/*sf::Texture *texture1,*/sf::Vector2u imageCount, float switchTime,float speed);
+    Player(sf::Texture *texture,sf::Vector2u imageCount, float switchTime,float speed);
     ~Player();
     Player(sf::Vector2u imageCount, float switchTime,float speed,sf::Texture *texture1);
 

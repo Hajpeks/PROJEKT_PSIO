@@ -63,88 +63,88 @@ void Menu::MoveDown()
         menu[selectedItemIndex].setFillColor(sf::Color::Green);
     }
 }
-void Menu::loop(sf::RenderWindow &window,Scene &scena)
-{
-    sf::Event event;
-    sf::Clock clock;
-    while (window.isOpen())
-    {
-        DeltaTime = clock.restart().asSeconds();
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed){
-            window.close();
-            }
-            if(event.type==sf::Event::KeyReleased){
-                if(event.key.code==sf::Keyboard::Numpad2)
-                {
-                    Menu::MoveDown();
-                }
-                if(event.key.code==sf::Keyboard::Numpad8)
-                {
-                    Menu::MoveUp();
-                }
-                if(event.key.code==sf::Keyboard::Escape)
-                {
-                    wybor=false;
-                }
-                if(event.key.code==sf::Keyboard::Enter)
-                {
+//void Menu::loop(sf::RenderWindow &window)
+//{
+//    sf::Event event;
+//    sf::Clock clock;
+//    while (window.isOpen())
+//    {
+//        DeltaTime = clock.restart().asSeconds();
+//        while (window.pollEvent(event))
+//        {
+//            if (event.type == sf::Event::Closed){
+//            window.close();
+//            }
+//            if(event.type==sf::Event::KeyReleased){
+//                if(event.key.code==sf::Keyboard::Numpad2)
+//                {
+//                    Menu::MoveDown();
+//                }
+//                if(event.key.code==sf::Keyboard::Numpad8)
+//                {
+//                    Menu::MoveUp();
+//                }
+//                if(event.key.code==sf::Keyboard::Escape)
+//                {
+//                    wybor=false;
+//                }
+//                if(event.key.code==sf::Keyboard::Enter)
+//                {
 
-                    switch(Menu::GetPressedItem())
-                    {
-                    case 0:
-                        scena.numer_mapy=0;
-                        wybor=true;
-                        //window.clear();
-                        scena.draw(window);                       
-                    break;
-                    case 1:
-                        scena.numer_mapy=1;
-                        wybor=true;
-                        scena.draw(window);
-                    break;
-                    case 2:
-                        scena.numer_mapy=2;
-                        wybor=true;
-                        scena.draw(window);
-                    break;
-                    case 3:
-                        wybor=true;
-                        window.close();
-                    break;
-                    }
-                }
+//                    switch(Menu::GetPressedItem())
+//                    {
+//                    case 0:
+//                        scena.numer_mapy=0;
+//                        wybor=true;
+//                        //window.clear();
+//                        scena.draw(window);
+//                    break;
+//                    case 1:
+//                        scena.numer_mapy=1;
+//                        wybor=true;
+//                        scena.draw(window);
+//                    break;
+//                    case 2:
+//                        scena.numer_mapy=2;
+//                        wybor=true;
+//                        scena.draw(window);
+//                    break;
+//                    case 3:
+//                        wybor=true;
+//                        window.close();
+//                    break;
+//                    }
+//                }
 
-            }
+//            }
 
-         }
+//         }
 
 
-        if(wybor==false){
-             window.clear(sf::Color(150,150,150));
-             Menu::draw(window);
-        }
-        if(scena.numer_mapy==0&&wybor!=false){
-           window.clear();
-           scena.draw(window);
-        }
-        else if(scena.numer_mapy==1&& wybor!=false){
-            window.clear();
-           scena.draw(window);
-        }
-        else if(scena.numer_mapy==2&&wybor!=false){
-           window.clear();
-           scena.draw(window);
-        }
-//        soldier.UpdateB1(DeltaTime);
-//        zombie.UpdateB2(DeltaTime);
+//        if(wybor==false){
+//             window.clear(sf::Color(150,150,150));
+//             Menu::draw(window);
+//        }
+//        if(scena.numer_mapy==0&&wybor!=false){
+//           window.clear();
+//           scena.draw(window);
+//        }
+//        else if(scena.numer_mapy==1&& wybor!=false){
+//            window.clear();
+//           scena.draw(window);
+//        }
+//        else if(scena.numer_mapy==2&&wybor!=false){
+//           window.clear();
+//           scena.draw(window);
+//        }
+////        soldier.UpdateB1(DeltaTime);
+////        zombie.UpdateB2(DeltaTime);
 
-//        window.clear();
-//        zombie.Draw(window);
-//        soldier.Draw(window);
+////        window.clear();
+////        zombie.Draw(window);
+////        soldier.Draw(window);
 
-        window.display();
-    }
-}
+//        window.display();
+//    }
+//}
 

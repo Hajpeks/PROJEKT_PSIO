@@ -95,7 +95,6 @@ void Player::UpdateB2(float DeltaTime)
 }
 void Player::Draw(sf::RenderWindow &window)
 {
-    window.clear();
     window.draw(body1);
     window.draw(body2);
 }

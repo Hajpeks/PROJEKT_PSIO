@@ -2,31 +2,16 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
-#include "Menu.h"
+#include "Game_Objects.h"
 
 int main() {
 
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "GAME", sf::Style::Close | sf::Style::Titlebar);
-//WGRANIE TEKSTUR
-    sf::Texture soldierTexture;
-    if (!soldierTexture.loadFromFile("soldier.png")) { return -1; }
-
-    sf::Texture zombieTexture;
-    if (!zombieTexture.loadFromFile("zombie.png")) { return -1; }
-
-//KONIEC TEKSTUR
-    Menu menu(window.getSize().x, window.getSize().y);
-
     Scene scena;
-
-    Player Soldier(&soldierTexture,sf::Vector2u(2,1),0.3,400.0f);
-
-    Player Zombie(sf::Vector2u(2,1),0.3,400.0f,&zombieTexture);
-
-
-    menu.loop(window,scena);
+    Menu menu(window.getSize().x,window.getSize().y);
+    Game_Objects pls;
+    pls.loop(window,scena,menu);
 
  return 0;
   }
-
 
