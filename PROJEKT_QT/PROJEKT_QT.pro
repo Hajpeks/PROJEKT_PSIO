@@ -5,9 +5,9 @@ CONFIG -= qt
 
 SOURCES += \
         Animation.cpp \
-        Items.cpp \
-        Maps.cpp \
+        Menu.cpp \
         Player.cpp \
+        Scene.cpp \
         main.cpp
 INCLUDEPATH += "C:/SFML/include"
 LIBS += -L"C:/SFML/lib"
@@ -21,6 +21,6 @@ DISTFILES += \
 
 HEADERS += \
     Animation.h \
-    Items.h \
-    Maps.h \
-    Player.h
+    Menu.h \
+    Player.h \
+    Scene.h

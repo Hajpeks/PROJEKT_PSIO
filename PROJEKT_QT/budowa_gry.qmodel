@@ -49,7 +49,7 @@
                          </base-DElement>
                          <object>{0d4c22fd-901f-4355-9362-f838406dab08}</object>
                          <name>Game Launcher</name>
-                         <pos>x:550;y:60</pos>
+                         <pos>x:355;y:195</pos>
                          <rect>x:-75;y:-50;w:150;h:100</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>6</visual-role>
@@ -57,46 +57,6 @@
                        </base-DObject>
                        <show-all-members>true</show-all-members>
                       </DClass>
-                     </instance>
-                    </item>
-                    <item>
-                     <instance type="DClass">
-                      <DClass>
-                       <base-DObject>
-                        <DObject>
-                         <base-DElement>
-                          <DElement>
-                           <uid>{b5007cc0-2cb8-4a54-93dd-d4b30f16893f}</uid>
-                          </DElement>
-                         </base-DElement>
-                         <object>{140ccbaa-ada9-4407-a7c3-08bdffa1b98d}</object>
-                         <name>Gun_battle</name>
-                         <pos>x:255;y:240</pos>
-                         <rect>x:-70;y:-45;w:140;h:90</rect>
-                         <auto-sized>false</auto-sized>
-                         <visual-role>0</visual-role>
-                        </DObject>
-                       </base-DObject>
-                       <show-all-members>true</show-all-members>
-                      </DClass>
-                     </instance>
-                    </item>
-                    <item>
-                     <instance type="DInheritance">
-                      <DInheritance>
-                       <base-DRelation>
-                        <DRelation>
-                         <base-DElement>
-                          <DElement>
-                           <uid>{f0962f54-5717-4583-b01e-bd379bdbbe0e}</uid>
-                          </DElement>
-                         </base-DElement>
-                         <object>{53940ac2-dafd-4e14-aa69-02b25c64f2ae}</object>
-                         <a>{b5007cc0-2cb8-4a54-93dd-d4b30f16893f}</a>
-                         <b>{6c045105-707d-46e7-89e7-63e5ab57531d}</b>
-                        </DRelation>
-                       </base-DRelation>
-                      </DInheritance>
                      </instance>
                     </item>
                     <item>
@@ -154,7 +114,7 @@
                           </DElement>
                          </base-DElement>
                          <object>{554a4e68-07a4-4d67-b9a2-75c616c1598a}</object>
-                         <name>Items</name>
+                         <name>Bullet</name>
                          <pos>x:265;y:705</pos>
                          <rect>x:-70;y:-50;w:140;h:100</rect>
                          <auto-sized>false</auto-sized>
@@ -176,9 +136,9 @@
                           </DElement>
                          </base-DElement>
                          <object>{cff324b9-f875-4818-99b6-937211adb5f6}</object>
-                         <name>Maps</name>
+                         <name>Menu</name>
                          <pos>x:460;y:405</pos>
-                         <rect>x:-90;y:-65;w:180;h:130</rect>
+                         <rect>x:-90;y:-75;w:180;h:150</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -218,24 +178,6 @@
                          <object>{718d97f3-12f9-460d-91d8-5eafcd72590d}</object>
                          <a>{ba91424c-5358-460b-ac91-9a1562549fc4}</a>
                          <b>{4901e16a-a167-4310-902a-598a9f7700d5}</b>
-                        </DRelation>
-                       </base-DRelation>
-                      </DInheritance>
-                     </instance>
-                    </item>
-                    <item>
-                     <instance type="DInheritance">
-                      <DInheritance>
-                       <base-DRelation>
-                        <DRelation>
-                         <base-DElement>
-                          <DElement>
-                           <uid>{c09892c9-04c1-477c-951b-8f618d4ab0b6}</uid>
-                          </DElement>
-                         </base-DElement>
-                         <object>{2c48f4f0-dca6-4baa-92b8-113b804e0330}</object>
-                         <a>{58487b57-2ace-4131-b47e-d4968627aedc}</a>
-                         <b>{b5007cc0-2cb8-4a54-93dd-d4b30f16893f}</b>
                         </DRelation>
                        </base-DRelation>
                       </DInheritance>
@@ -299,9 +241,27 @@
                       </DInheritance>
                      </instance>
                     </item>
+                    <item>
+                     <instance type="DInheritance">
+                      <DInheritance>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{d461dc1f-0c64-443b-9211-d138458aad33}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{c36556a1-0188-403e-b0a8-8deb0c9e75ae}</object>
+                         <a>{58487b57-2ace-4131-b47e-d4968627aedc}</a>
+                         <b>{6c045105-707d-46e7-89e7-63e5ab57531d}</b>
+                        </DRelation>
+                       </base-DRelation>
+                      </DInheritance>
+                     </instance>
+                    </item>
                    </qlist>
                   </elements>
-                  <last-modified>1591186505686</last-modified>
+                  <last-modified>1591547658334</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -1194,14 +1154,14 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{8bc99640-e5cd-4d83-ba55-be12cff13324}</uid>
+                    <uid>{4946bb23-5f73-4d51-8ff6-eeb7d8498813}</uid>
                     <type>2</type>
                     <declaration>+choose_game()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{4bf06813-3e9a-465d-b7a5-5d08c52371af}</uid>
+                    <uid>{2b962cea-5426-4df0-a994-42b30aa3a320}</uid>
                     <type>2</type>
                     <declaration>run()</declaration>
                    </MClassMember>
@@ -1263,7 +1223,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{1deb3535-e05b-46bc-9581-c60086129393}</uid>
+                    <uid>{d1c2d5eb-c6ac-4387-b7ac-3f27bd3e744c}</uid>
                     <type>2</type>
                     <declaration>+loop()</declaration>
                    </MClassMember>
@@ -1325,35 +1285,35 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{5330fd18-c586-4e00-a36d-ff7162cf21f4}</uid>
+                    <uid>{ee6f8b16-5c74-4170-bcc6-77ff35e5c89f}</uid>
                     <type>1</type>
                     <declaration>-frame_time</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{5aeac79f-d51b-4bcf-915b-fa31227a5009}</uid>
+                    <uid>{a82248c0-2de8-4e01-aacf-f4d70323f629}</uid>
                     <type>1</type>
                     <declaration>-Player Player</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2d593c22-6c01-43ed-a3e2-7b896b4946de}</uid>
+                    <uid>{44b5e682-b87e-4850-abb0-2d496e586c0b}</uid>
                     <type>2</type>
                     <declaration>+update_colisions()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0acc3371-75cc-4c78-924d-3ccd31d64406}</uid>
+                    <uid>{709f3825-c1be-4c22-ad20-b6ed88b9796f}</uid>
                     <type>2</type>
                     <declaration>+check_hp()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{169cd4cd-7905-4963-bb28-d05c690fe588}</uid>
+                    <uid>{f52460ab-9cb4-40ba-b34b-2b113005b692}</uid>
                     <type>2</type>
                     <declaration>+death()</declaration>
                    </MClassMember>
@@ -1415,56 +1375,56 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{5373cedb-55c0-449d-a6d9-a08efc77f9ac}</uid>
+                    <uid>{03bdce81-89e3-48b6-bff3-5f5b46c5a015}</uid>
                     <type>1</type>
                     <declaration>- sf::IntRect startRect</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{257d7fb4-130d-4820-be4d-b1cfed099dd7}</uid>
+                    <uid>{2cdf8880-426f-44ee-b79b-bbf541193d5a}</uid>
                     <type>1</type>
                     <declaration>- sf::IntRect currentRect</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a5f05acb-5365-420b-ac92-391e6861fa04}</uid>
+                    <uid>{1025be5c-ae9c-4e1b-9803-b10c8883cd44}</uid>
                     <type>1</type>
                     <declaration>- sf::IntRect endRect</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{3b7ef6b5-8bda-424e-a005-0bea60277162}</uid>
+                    <uid>{cba2bc5e-f6d8-4255-a1f0-75d045b95494}</uid>
                     <type>1</type>
                     <declaration>-velocity</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e15a95da-a89e-4ff5-9a5d-371e5cd66382}</uid>
+                    <uid>{65092955-3a48-47fc-af25-31354caf1f0f}</uid>
                     <type>2</type>
                     <declaration>+add_annimate()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0c039cdf-b9b4-467e-a10f-5c5aa3fccb73}</uid>
+                    <uid>{87596ba0-f7e1-49a1-a44e-c1b02c166125}</uid>
                     <type>2</type>
                     <declaration>+play_animate()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ac7f6b1b-a840-48bd-840f-d05f89061020}</uid>
+                    <uid>{f9d30c1e-c3cd-43d9-9b80-0f91b831ab4a}</uid>
                     <type>2</type>
                     <declaration>+move_player(klawisze)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{3e2f4425-5754-4433-80e3-4b70d60105ac}</uid>
+                    <uid>{6e65fee0-2d64-49b1-a09d-5e447f22a8d1}</uid>
                     <type>1</type>
                     <declaration>+shoot</declaration>
                    </MClassMember>
@@ -1489,7 +1449,7 @@
                     <uid>{554a4e68-07a4-4d67-b9a2-75c616c1598a}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>Items</name>
+                  <name>Bullet</name>
                   <relations>
                    <handles>
                     <handles>
@@ -1548,14 +1508,14 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{44d3675e-1486-4dfb-bd83-ddfe92363f56}</uid>
+                    <uid>{ba51163b-0945-4fc5-9085-d18e6e75de95}</uid>
                     <type>1</type>
                     <declaration>-hp_points</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{dcc61204-4721-4bb6-b9fd-cf3f366897bd}</uid>
+                    <uid>{6f4fd283-623e-45ba-a4df-0ad2852eb5c4}</uid>
                     <type>2</type>
                     <declaration>+delete_hp()</declaration>
                    </MClassMember>
@@ -1580,7 +1540,7 @@
                     <uid>{cff324b9-f875-4818-99b6-937211adb5f6}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>Maps</name>
+                  <name>Menu</name>
                   <relations>
                    <handles>
                     <handles>
@@ -1607,6 +1567,28 @@
                         </target>
                        </handle>
                       </item>
+                      <item>
+                       <handle>
+                        <uid>{c36556a1-0188-403e-b0a8-8deb0c9e75ae}</uid>
+                        <target>
+                         <instance type="MInheritance">
+                          <MInheritance>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{c36556a1-0188-403e-b0a8-8deb0c9e75ae}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{cff324b9-f875-4818-99b6-937211adb5f6}</a>
+                             <b>{0d4c22fd-901f-4355-9362-f838406dab08}</b>
+                            </MRelation>
+                           </base-MRelation>
+                          </MInheritance>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
                      </qlist>
                     </handles>
                    </handles>
@@ -1617,37 +1599,44 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{f0f721d4-a069-4572-b147-9302044fd59a}</uid>
+                    <uid>{f78964c4-ca92-4693-9cb9-02a8d41b853a}</uid>
                     <type>1</type>
                     <declaration>-width</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{af8dcd07-566c-4e4e-961c-1fa15f5c6e6a}</uid>
+                    <uid>{761292a3-36d6-46c4-bfb7-c92db6fb06a7}</uid>
                     <type>1</type>
                     <declaration>-height</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{c666c603-3d9f-484f-b252-48b4ba5044c6}</uid>
+                    <uid>{06ddbfc2-3b17-4ac6-b42d-f71c0be71040}</uid>
                     <type>2</type>
                     <declaration>+change_scene()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{aefa8ca7-2b66-493e-b83b-e2a61bdf8b42}</uid>
+                    <uid>{ae69c083-4685-47a7-9f4b-8da56b16ea4f}</uid>
                     <type>2</type>
                     <declaration>+check_objects()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a3880767-dfbd-44c4-8e6a-4ac5e6f7bea0}</uid>
+                    <uid>{d887de0a-0ad2-4547-90c0-5a40c1772b7d}</uid>
                     <type>2</type>
                     <declaration>+draw(obiekty i tekstury)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{efbf55e1-8843-457a-8337-f910a7a6191b}</uid>
+                    <type>2</type>
+                    <declaration>+loop()</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
@@ -1707,21 +1696,21 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{7003cd82-3e8b-4bb9-a65b-c5afe843d516}</uid>
+                    <uid>{47bf8c1a-1759-46af-a0e1-437ff8ecbfe2}</uid>
                     <type>1</type>
                     <declaration>hp_texture</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{278c0b78-3fc1-4761-83db-070f352481d5}</uid>
+                    <uid>{5a7043b6-4776-4b9e-af65-e3920d0f7d06}</uid>
                     <type>1</type>
                     <declaration>wall_texture</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{c81dd546-60e7-4ca2-b468-5d8718e1084e}</uid>
+                    <uid>{3c0f6659-82fc-4e51-aac2-474cc38d74c0}</uid>
                     <type>1</type>
                     <declaration>background_texture</declaration>
                    </MClassMember>

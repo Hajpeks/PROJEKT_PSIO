@@ -2,8 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
-
-//#include "Animation.h"
+#include "Menu.h"
 #include "Player.h"
 
 int main() {
@@ -18,9 +17,9 @@ int main() {
     if (!zombieTexture.loadFromFile("zombie.png")) { return -1; }
 
 
-    Player player(&soldierTexture,sf::Vector2u(2,1),0.3,300.0f);
+    Player player(&soldierTexture,sf::Vector2u(2,1),0.3,400.0f);
 
-    Player Zombie(sf::Vector2u(2,1),0.3,300.0f,&zombieTexture);
+    Player Zombie(sf::Vector2u(2,1),0.3,400.0f,&zombieTexture);
 
 
     sf::Event sfEvent;
