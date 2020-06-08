@@ -11,7 +11,7 @@ public:
     Menu(float width, float height);
     ~Menu();
     void draw(sf::RenderWindow &window);
-    void loop(sf::RenderWindow &window,Scene &scena,Player &zombie);
+    void loop(sf::RenderWindow &window,Scene &scena);
     void MoveUp();
     void MoveDown();
     int GetPressedItem() { return selectedItemIndex; }

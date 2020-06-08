@@ -37,46 +37,17 @@ int main() {
     if (!Fence.loadFromFile("fence.png")) { return -1; }
 //KONIEC TEKSTUR
     Menu menu(window.getSize().x, window.getSize().y);
+
     Scene scena(Cactus,Fence,Wooden_Backround,Niebieskie,Red_Background);
 
-    Player player(&soldierTexture,sf::Vector2u(2,1),0.3,400.0f);
+    Player Soldier(&soldierTexture,sf::Vector2u(2,1),0.3,400.0f);
 
     Player Zombie(sf::Vector2u(2,1),0.3,400.0f,&zombieTexture);
 
 
-
-
-    sf::Event sfEvent;
-    sf::Clock clock;
-    float DeltaTime;
-
-    //Main gameplay loop
-    while (window.isOpen()) {
-
-//        menu.loop(window,scena);
-
-       DeltaTime = clock.restart().asSeconds();
-
-        while (window.pollEvent(sfEvent)) {
-            if (sfEvent.type == sf::Event::Closed) {
-                window.close();
-            }
-        }
-
-
-
-        player.UpdateB1(DeltaTime);
-        Zombie.UpdateB2(DeltaTime);
-
-
-
-        window.clear();
-        Zombie.Draw(window);
-        player.Draw(window);
-        window.display();
-    }
+    menu.loop(window,scena,Zombie);
 
  return 0;
-    }
+  }
 
 

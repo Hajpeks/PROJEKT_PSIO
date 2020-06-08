@@ -9,6 +9,7 @@ private:
 std::vector<sf::Sprite> _cactus;
 std::vector<sf::Sprite> _fences;
 std::vector<sf::Sprite> _background_screens;
+//sf::Texture &texture,&Block_Texture,&wooden,&blue,&red;
 
 public:
   Scene(sf::Texture &texture,sf::Texture &Block_Texture,sf::Texture &wooden,sf::Texture &blue,sf::Texture &red);
