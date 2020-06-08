@@ -1,46 +1,62 @@
 #include "Scene.h"
 
-Scene::Scene(sf::Texture &texture,sf::Texture &Block_Texture,sf::Texture &wooden,sf::Texture &blue,sf::Texture &red){
+Scene::Scene(){
 
-    this->genereteCactus(texture);
-    this->generateBlocks(Block_Texture);
-    this->generate_bacground(wooden,blue,red);
+    Blue_Background.setRepeated(true);
+    if (!Blue_Background.loadFromFile("niebieskie_tlo.png")) { throw("can't do shit"); }
+
+    Wooden_Backround.setRepeated(true);
+    if (!Wooden_Backround.loadFromFile("drewniane_tlo.png")) { throw("cant do shit"); }
+
+
+    Red_Background.setRepeated(true);
+    if (!Red_Background.loadFromFile("czerwone_tlo.png")) { throw("can't do shit"); }
+
+    Cactus.setSrgb(true);
+    if (!Cactus.loadFromFile("cactus1.png")) { throw("can't do shit"); }
+
+    Fence.setSrgb(true);
+    if (!Fence.loadFromFile("fence.png")) {throw("can't do shit"); }
+
+    this->genereteCactus(Cactus);
+    this->generateBlocks(Fence);
+    this->generate_bacground(Wooden_Backround,Blue_Background,Red_Background);
 
 }
-std::vector<sf::Sprite> Scene::genereteCactus(sf::Texture &texture)
+std::vector<sf::Sprite> Scene::genereteCactus(sf::Texture &Cactus)
 {
     sf::Sprite cactus1;
-    cactus1.setTexture(texture);
+    cactus1.setTexture(Cactus);
     cactus1.setPosition(400,200);
     cactus1.setScale(0.5,0.5);
     _cactus.emplace_back(cactus1);
 
     sf::Sprite cactus2;
-    cactus2.setTexture(texture);
+    cactus2.setTexture(Cactus);
     cactus2.setPosition(1472,200);
     cactus2.setScale(0.5,0.5);
     _cactus.emplace_back(cactus2);
 
     sf::Sprite cactus3;
-    cactus3.setTexture(texture);
+    cactus3.setTexture(Cactus);
     cactus3.setPosition(400,500);
     cactus3.setScale(0.5,0.5);
     _cactus.emplace_back(cactus3);
 
     sf::Sprite cactus4;
-    cactus4.setTexture(texture);
+    cactus4.setTexture(Cactus);
     cactus4.setPosition(1472,500);
     cactus4.setScale(0.5,0.5);
     _cactus.emplace_back(cactus4);
 
     sf::Sprite cactus5;
-    cactus5.setTexture(texture);
+    cactus5.setTexture(Cactus);
     cactus5.setPosition(400,800);
     cactus5.setScale(0.5,0.5);
     _cactus.emplace_back(cactus5);
 
     sf::Sprite cactus6;
-    cactus6.setTexture(texture);
+    cactus6.setTexture(Cactus);
     cactus6.setPosition(1472,800);
     cactus6.setScale(0.5,0.5);
     _cactus.emplace_back(cactus6);
@@ -79,25 +95,25 @@ std::vector<sf::Sprite> Scene::generateBlocks(sf::Texture &block_Texture)
 
     return _fences;
 }
-std::vector<sf::Sprite> Scene::generate_bacground(sf::Texture &Wooden, sf::Texture &Blue, sf::Texture &Red)
+std::vector<sf::Sprite> Scene::generate_bacground(sf::Texture &Wooden_Background, sf::Texture &Blue_Background, sf::Texture &Red_Background)
 {
-    sf::Sprite Red_Background;
-    Red_Background.setTexture(Red);
-    Red_Background.setPosition(0,0);
-    Red_Background.setTextureRect(sf::IntRect(0,0,1920,1080));
-    _background_screens.emplace_back(Red_Background);
+    sf::Sprite Red;
+    Red.setTexture(Red_Background);
+    Red.setPosition(0,0);
+    Red.setTextureRect(sf::IntRect(0,0,1920,1080));
+    _background_screens.emplace_back(Red);
 
-    sf::Sprite Blue_Background;
-    Blue_Background.setTexture(Blue);
-    Blue_Background.setPosition(0,0);
-    Blue_Background.setTextureRect(sf::IntRect(0,0,1920,1080));
-    _background_screens.emplace_back(Blue_Background);
+    sf::Sprite Blue;
+    Blue.setTexture(Blue_Background);
+    Blue.setPosition(0,0);
+    Blue.setTextureRect(sf::IntRect(0,0,1920,1080));
+    _background_screens.emplace_back(Blue);
 
-    sf::Sprite wooden_background;
-    wooden_background.setTexture(Wooden);
-    wooden_background.setPosition(0,0);
-    wooden_background.setTextureRect(sf::IntRect(0,0,1920,1080));
-    _background_screens.emplace_back(wooden_background);
+    sf::Sprite Wooden;
+    Wooden.setTexture(Wooden_Background);
+    Wooden.setPosition(0,0);
+    Wooden.setTextureRect(sf::IntRect(0,0,1920,1080));
+    _background_screens.emplace_back(Wooden);
 
 
     return _background_screens;

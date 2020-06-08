@@ -63,7 +63,7 @@ void Menu::MoveDown()
         menu[selectedItemIndex].setFillColor(sf::Color::Green);
     }
 }
-void Menu::loop(sf::RenderWindow &window,Scene &scena,Player &zombie)
+void Menu::loop(sf::RenderWindow &window,Scene &scena)
 {
     sf::Event event;
     sf::Clock clock;

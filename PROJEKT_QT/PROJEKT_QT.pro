@@ -5,6 +5,7 @@ CONFIG -= qt
 
 SOURCES += \
         Animation.cpp \
+        Game_Objects.cpp \
         Menu.cpp \
         Player.cpp \
         Scene.cpp \
@@ -21,6 +22,7 @@ DISTFILES += \
 
 HEADERS += \
     Animation.h \
+    Game_Objects.h \
     Menu.h \
     Player.h \
     Scene.h

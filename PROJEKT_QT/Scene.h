@@ -9,14 +9,14 @@ private:
 std::vector<sf::Sprite> _cactus;
 std::vector<sf::Sprite> _fences;
 std::vector<sf::Sprite> _background_screens;
-//sf::Texture &texture,&Block_Texture,&wooden,&blue,&red;
+sf::Texture Wooden_Backround,Red_Background,Blue_Background,Cactus,Fence;
+
 
 public:
-  Scene(sf::Texture &texture,sf::Texture &Block_Texture,sf::Texture &wooden,sf::Texture &blue,sf::Texture &red);
-
-   std::vector<sf::Sprite> genereteCactus(sf::Texture &texture);
-   std::vector<sf::Sprite> generateBlocks(sf::Texture &block_Texture);
-   std::vector<sf::Sprite> generate_bacground(sf::Texture &Wooden,sf::Texture &Blue,sf::Texture &Red);
+  Scene();
+   std::vector<sf::Sprite> genereteCactus(sf::Texture &Cactus);
+   std::vector<sf::Sprite> generateBlocks(sf::Texture &Fence);
+   std::vector<sf::Sprite> generate_bacground(sf::Texture &Wooden_Backgorund,sf::Texture &Blue_Backgorund,sf::Texture &Red_Background);
 
    void draw(sf::RenderWindow &window);
 public:
