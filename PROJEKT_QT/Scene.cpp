@@ -5,6 +5,7 @@ Scene::Scene(sf::Texture &texture,sf::Texture &Block_Texture,sf::Texture &wooden
     this->genereteCactus(texture);
     this->generateBlocks(Block_Texture);
     this->generate_bacground(wooden,blue,red);
+
 }
 std::vector<sf::Sprite> Scene::genereteCactus(sf::Texture &texture)
 {
@@ -104,8 +105,7 @@ std::vector<sf::Sprite> Scene::generate_bacground(sf::Texture &Wooden, sf::Textu
 
 void Scene::draw(sf::RenderWindow &window)
 {
-    //window.clear();
-   // tla kolory;
+
     if(numer_mapy==0){
         window.draw(_background_screens[0]);
     }
