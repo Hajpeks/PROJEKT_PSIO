@@ -51,21 +51,16 @@ void Game_Objects::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
                         case 0:
                             scene.numer_mapy=0;
                             wybor=true;
-                            //window.clear();
-                            Soldier.Draw(window);
-                            Zombie.Draw(window);
-                            scene.draw(window);
-
+                            window.clear();
                         break;
                         case 1:
                             scene.numer_mapy=1;
                             wybor=true;
-                            scene.draw(window);
+
                         break;
                         case 2:
                             scene.numer_mapy=2;
                             wybor=true;
-                            scene.draw(window);
                         break;
                         case 3:
                             wybor=true;
@@ -84,12 +79,13 @@ void Game_Objects::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
                  menu.draw(window);
             }
             if(scene.numer_mapy==0&&wybor!=false){
-               window.clear();
-               scene.draw(window);
+              // window.clear();
                Soldier.UpdateB1(DeltaTime);
                Zombie.UpdateB2(DeltaTime);
+               scene.draw(window);
                Soldier.Draw(window);
                Zombie.Draw(window);
+
             }
             else if(scene.numer_mapy==1&& wybor!=false){
                 window.clear();

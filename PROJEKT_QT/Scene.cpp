@@ -141,5 +141,4 @@ void Scene::draw(sf::RenderWindow &window)
         window.draw(el2);
     }
 
-    window.display();
 }

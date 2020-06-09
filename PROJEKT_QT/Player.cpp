@@ -97,4 +97,5 @@ void Player::Draw(sf::RenderWindow &window)
 {
     window.draw(body1);
     window.draw(body2);
+
 }
