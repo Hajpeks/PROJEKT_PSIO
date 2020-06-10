@@ -18,82 +18,79 @@ Scene::Scene(){
     Fence.setSrgb(true);
     if (!Fence.loadFromFile("fence.png")) {throw("can't do shit"); }
 
-    this->genereteCactus(Cactus);
-    this->generateBlocks(Fence);
+    std::vector<sf::Sprite> _Blocks=generateBlocks();
+    this->generateBlocks();
     this->generate_bacground(Wooden_Backround,Blue_Background,Red_Background);
 
 }
-std::vector<sf::Sprite> Scene::genereteCactus(sf::Texture &Cactus)
+std::vector<sf::Sprite> Scene::generateBlocks()
 {
+
     sf::Sprite cactus1;
     cactus1.setTexture(Cactus);
     cactus1.setPosition(400,200);
     cactus1.setScale(0.5,0.5);
-    _cactus.emplace_back(cactus1);
+    _Blocks.emplace_back(cactus1);
 
     sf::Sprite cactus2;
     cactus2.setTexture(Cactus);
     cactus2.setPosition(1472,200);
     cactus2.setScale(0.5,0.5);
-    _cactus.emplace_back(cactus2);
+    _Blocks.emplace_back(cactus2);
 
     sf::Sprite cactus3;
     cactus3.setTexture(Cactus);
     cactus3.setPosition(400,500);
     cactus3.setScale(0.5,0.5);
-    _cactus.emplace_back(cactus3);
+    _Blocks.emplace_back(cactus3);
 
     sf::Sprite cactus4;
     cactus4.setTexture(Cactus);
     cactus4.setPosition(1472,500);
     cactus4.setScale(0.5,0.5);
-    _cactus.emplace_back(cactus4);
+    _Blocks.emplace_back(cactus4);
 
     sf::Sprite cactus5;
     cactus5.setTexture(Cactus);
     cactus5.setPosition(400,800);
     cactus5.setScale(0.5,0.5);
-    _cactus.emplace_back(cactus5);
+    _Blocks.emplace_back(cactus5);
 
     sf::Sprite cactus6;
     cactus6.setTexture(Cactus);
     cactus6.setPosition(1472,800);
     cactus6.setScale(0.5,0.5);
-    _cactus.emplace_back(cactus6);
+    _Blocks.emplace_back(cactus6);
 
-    return _cactus;
-}
-std::vector<sf::Sprite> Scene::generateBlocks(sf::Texture &block_Texture)
-{
-    sf::Sprite block1;
-    block1.setTexture(block_Texture);
-    block1.setPosition(930,350);
-    block1.setScale(0.7,0.7);
-    block1.setColor(sf::Color(200,100,100));
-    _fences.emplace_back(block1);
+    sf::Sprite fence1;
+    fence1.setTexture(Fence);
+    fence1.setPosition(930,350);
+    fence1.setScale(0.7,0.7);
+    fence1.setColor(sf::Color(200,100,100));
+    _Blocks.emplace_back(fence1);
 
-    sf::Sprite block2;
-    block2.setTexture(block_Texture);
-    block2.setPosition(930,650);
-    block2.setScale(0.7,0.7);
-    block2.setColor(sf::Color(200,100,100));
-    _fences.emplace_back(block2);
+    sf::Sprite fence2;
+    fence2.setTexture(Fence);
+    fence2.setPosition(930,650);
+    fence2.setScale(0.7,0.7);
+    fence2.setColor(sf::Color(200,100,100));
+    _Blocks.emplace_back(fence2);
 
-    sf::Sprite block3;
-    block3.setTexture(block_Texture);
-    block3.setPosition(930,50);
-    block3.setScale(0.7,0.7);
-    block3.setColor(sf::Color(200,100,100));
-    _fences.emplace_back(block3);
+    sf::Sprite fence3;
+    fence3.setTexture(Fence);
+    fence3.setPosition(930,50);
+    fence3.setScale(0.7,0.7);
+    fence3.setColor(sf::Color(200,100,100));
+    _Blocks.emplace_back(fence3);
 
-    sf::Sprite block4;
-    block4.setTexture(block_Texture);
-    block4.setPosition(930,950);
-    block4.setScale(0.7,0.7);
-    block4.setColor(sf::Color(200,100,100));
-    _fences.emplace_back(block4);
 
-    return _fences;
+    sf::Sprite fence4;
+    fence4.setTexture(Fence);
+    fence4.setPosition(930,950);
+    fence4.setScale(0.7,0.7);
+    fence4.setColor(sf::Color(200,100,100));
+    _Blocks.emplace_back(fence4);
+    return _Blocks;
 }
 std::vector<sf::Sprite> Scene::generate_bacground(sf::Texture &Wooden_Background, sf::Texture &Blue_Background, sf::Texture &Red_Background)
 {
@@ -131,12 +128,7 @@ void Scene::draw(sf::RenderWindow &window)
     else if(numer_mapy==2){
         window.draw(_background_screens[2]);
     }
-
-    for(auto &el: _cactus)
-    {
-        window.draw(el);
-    }
-    for(auto &el2: _fences)
+    for(auto &el2: _Blocks)
     {
         window.draw(el2);
     }

@@ -615,9 +615,10 @@ Game_Objects.o: ../PROJEKT_QT/Game_Objects.cpp ../PROJEKT_QT/Game_Objects.h \
 		C:/SFML/include/SFML/Graphics/Text.hpp \
 		C:/SFML/include/SFML/Graphics/VertexBuffer.hpp \
 		../PROJEKT_QT/Menu.h \
-		../PROJEKT_QT/Scene.h \
 		../PROJEKT_QT/Player.h \
-		../PROJEKT_QT/Animation.h
+		../PROJEKT_QT/Animation.h \
+		../PROJEKT_QT/Collider.h \
+		../PROJEKT_QT/Scene.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Game_Objects.o ..\PROJEKT_QT\Game_Objects.cpp
 
 Menu.o: ../PROJEKT_QT/Menu.cpp ../PROJEKT_QT/Menu.h \
@@ -697,9 +698,7 @@ Menu.o: ../PROJEKT_QT/Menu.cpp ../PROJEKT_QT/Menu.h \
 		C:/SFML/include/SFML/Graphics/VertexBuffer.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Menu.o ..\PROJEKT_QT\Menu.cpp
 
-Player.o: ../PROJEKT_QT/Player.cpp ../PROJEKT_QT/Player.h \
-		C:/SFML/include/SFML/Graphics.hpp \
-		C:/SFML/include/SFML/Window.hpp \
+Player.o: ../PROJEKT_QT/Player.cpp C:/SFML/include/SFML/Window.hpp \
 		C:/SFML/include/SFML/System.hpp \
 		C:/SFML/include/SFML/Config.hpp \
 		C:/SFML/include/SFML/System/Clock.hpp \
@@ -742,6 +741,7 @@ Player.o: ../PROJEKT_QT/Player.cpp ../PROJEKT_QT/Player.h \
 		C:/SFML/include/SFML/Window/Window.hpp \
 		C:/SFML/include/SFML/Window/WindowHandle.hpp \
 		C:/SFML/include/SFML/Window/WindowStyle.hpp \
+		C:/SFML/include/SFML/Graphics.hpp \
 		C:/SFML/include/SFML/Graphics/BlendMode.hpp \
 		C:/SFML/include/SFML/Graphics/Export.hpp \
 		C:/SFML/include/SFML/Graphics/CircleShape.hpp \
@@ -772,7 +772,10 @@ Player.o: ../PROJEKT_QT/Player.cpp ../PROJEKT_QT/Player.h \
 		C:/SFML/include/SFML/Graphics/Sprite.hpp \
 		C:/SFML/include/SFML/Graphics/Text.hpp \
 		C:/SFML/include/SFML/Graphics/VertexBuffer.hpp \
-		../PROJEKT_QT/Animation.h
+		../PROJEKT_QT/Player.h \
+		../PROJEKT_QT/Animation.h \
+		../PROJEKT_QT/Collider.h \
+		../PROJEKT_QT/Scene.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Player.o ..\PROJEKT_QT\Player.cpp
 
 Scene.o: ../PROJEKT_QT/Scene.cpp ../PROJEKT_QT/Scene.h \
@@ -849,7 +852,8 @@ Scene.o: ../PROJEKT_QT/Scene.cpp ../PROJEKT_QT/Scene.h \
 		C:/SFML/include/SFML/Graphics/Glsl.inl \
 		C:/SFML/include/SFML/Graphics/Sprite.hpp \
 		C:/SFML/include/SFML/Graphics/Text.hpp \
-		C:/SFML/include/SFML/Graphics/VertexBuffer.hpp
+		C:/SFML/include/SFML/Graphics/VertexBuffer.hpp \
+		../PROJEKT_QT/Collider.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Scene.o ..\PROJEKT_QT\Scene.cpp
 
 main.o: ../PROJEKT_QT/main.cpp C:/SFML/include/SFML/Window.hpp \
@@ -928,9 +932,10 @@ main.o: ../PROJEKT_QT/main.cpp C:/SFML/include/SFML/Window.hpp \
 		C:/SFML/include/SFML/Graphics/VertexBuffer.hpp \
 		../PROJEKT_QT/Game_Objects.h \
 		../PROJEKT_QT/Menu.h \
-		../PROJEKT_QT/Scene.h \
 		../PROJEKT_QT/Player.h \
-		../PROJEKT_QT/Animation.h
+		../PROJEKT_QT/Animation.h \
+		../PROJEKT_QT/Collider.h \
+		../PROJEKT_QT/Scene.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ..\PROJEKT_QT\main.cpp
 
 ####### Install
