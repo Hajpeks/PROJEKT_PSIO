@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-class Animation: public sf::Sprite{
+class Animation{
 
 private:
    float totalTime;

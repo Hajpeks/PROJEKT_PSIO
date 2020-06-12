@@ -14,6 +14,7 @@ Player::Player(sf::Texture *texture,sf::Vector2u imageCount, float switchTime,fl
  body1.setScale(1.5,1.5);
  body1.setTexture(texture);
 
+
 }
 Player::Player(sf::Vector2u imageCount,float switchTime,float speed,sf::Texture *texture1):
     animation(texture1,imageCount,switchTime)
@@ -21,10 +22,10 @@ Player::Player(sf::Vector2u imageCount,float switchTime,float speed,sf::Texture 
      this->speed=speed;
      row=0;
      faceRight=true;
-     body2.setSize(sf::Vector2f(80,120));
-     body2.setPosition(1700,20);
-     body2.setScale(1.5,1.5);
-     body2.setTexture(texture1);
+//     body2.setSize(sf::Vector2f(80,120));
+//     body2.setPosition(1700,20);
+//     body2.setScale(1.5,1.5);
+//     body2.setTexture(texture1);
 }
 Player::~Player()
 {
@@ -62,6 +63,7 @@ void Player::UpdateB1(float DeltaTime)
     animation.Update(row,DeltaTime,faceRight);
     body1.setTextureRect(animation.uvRect);
     body1.move(movement);
+
 }
 
 void Player::UpdateB2(float DeltaTime)
@@ -102,6 +104,8 @@ void Player::UpdateColisions(std::vector<sf::Sprite> &Blocks,float &dt){
     sf::FloatRect playerBoundsNext = this->getGlobalBounds();
     playerBoundsNext.left = this->getPosition().x + this->movement.x * dt;
     playerBoundsNext.top = this->getPosition().y + this->movement.y * dt;
+    std::cout<<playerBounds.top<<" "<<playerBounds.left<<" "<<playerBounds.width<<" "<<playerBounds.height<<std::endl;
+      std::cout<<playerBoundsNext.top<<" "<<playerBoundsNext.left<<" "<<playerBoundsNext.width<<" "<<playerBoundsNext.height<<std::endl;
 
     for (auto& block : Blocks) {
 
@@ -118,7 +122,6 @@ void Player::UpdateColisions(std::vector<sf::Sprite> &Blocks,float &dt){
                 std::cout<<"KOLIZJA"<<std::endl;
                 this->movement.y = 0;
                 this->setPosition(playerBounds.left, BlocksBounds.top - playerBounds.height);
-
             }
 
             //Top Collision

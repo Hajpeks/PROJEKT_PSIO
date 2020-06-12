@@ -1,29 +1,33 @@
 #include "Scene.h"
 
 Scene::Scene(){
-
+//Niebieskie tło
     Blue_Background.setRepeated(true);
     if (!Blue_Background.loadFromFile("niebieskie_tlo.png")) { throw("can't do shit"); }
-
+//Drewniane tło
     Wooden_Backround.setRepeated(true);
     if (!Wooden_Backround.loadFromFile("drewniane_tlo.png")) { throw("cant do shit"); }
-
-
+//Czerwone tło
     Red_Background.setRepeated(true);
     if (!Red_Background.loadFromFile("czerwone_tlo.png")) { throw("can't do shit"); }
-
+//KAKTUSY
     Cactus.setSrgb(true);
     if (!Cactus.loadFromFile("cactus1.png")) { throw("can't do shit"); }
-
+//PLOTKI
     Fence.setSrgb(true);
     if (!Fence.loadFromFile("fence.png")) {throw("can't do shit"); }
+//Żolnierzyk
+    if (!soldierTexture.loadFromFile("soldier.png")) { throw("can't do shit"); }
+    soldierTexture.setSrgb(true);
+//Zombie
+    if (!zombieTexture.loadFromFile("zombie.png")) { throw("can't do shit"); }
+    zombieTexture.setSrgb(true);
 
-    std::vector<sf::Sprite> _Blocks=generateBlocks();
     this->generateBlocks();
     this->generate_bacground(Wooden_Backround,Blue_Background,Red_Background);
 
 }
-std::vector<sf::Sprite> Scene::generateBlocks()
+void Scene::generateBlocks()
 {
 
     sf::Sprite cactus1;
@@ -90,9 +94,9 @@ std::vector<sf::Sprite> Scene::generateBlocks()
     fence4.setScale(0.7,0.7);
     fence4.setColor(sf::Color(200,100,100));
     _Blocks.emplace_back(fence4);
-    return _Blocks;
+
 }
-std::vector<sf::Sprite> Scene::generate_bacground(sf::Texture &Wooden_Background, sf::Texture &Blue_Background, sf::Texture &Red_Background)
+void Scene::generate_bacground(sf::Texture &Wooden_Background, sf::Texture &Blue_Background, sf::Texture &Red_Background)
 {
     sf::Sprite Red;
     Red.setTexture(Red_Background);
@@ -112,8 +116,6 @@ std::vector<sf::Sprite> Scene::generate_bacground(sf::Texture &Wooden_Background
     Wooden.setTextureRect(sf::IntRect(0,0,1920,1080));
     _background_screens.emplace_back(Wooden);
 
-
-    return _background_screens;
 }
 
 void Scene::draw(sf::RenderWindow &window)
@@ -133,4 +135,99 @@ void Scene::draw(sf::RenderWindow &window)
         window.draw(el2);
     }
 
+}
+void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
+
+
+        Player Soldier(&soldierTexture,sf::Vector2u(2,1),0.3,400.0f);
+        Player Zombie(sf::Vector2u(2,1),0.3,400.0f,&zombieTexture);
+        Soldier.setPosition(100,800);
+
+        sf::Event event;
+        sf::Clock clock;
+        while (window.isOpen())
+        {
+            DeltaTime = clock.restart().asSeconds();
+            while (window.pollEvent(event))
+            {
+                if (event.type == sf::Event::Closed){
+                window.close();
+                }
+                if(event.type==sf::Event::KeyReleased){
+                    if(event.key.code==sf::Keyboard::Numpad2)
+                    {
+                        menu.MoveDown();
+                    }
+                    if(event.key.code==sf::Keyboard::Numpad8)
+                    {
+                        menu.MoveUp();
+                    }
+                    if(event.key.code==sf::Keyboard::Escape)
+                    {
+                        wybor=false;
+                    }
+                    if(event.key.code==sf::Keyboard::Enter)
+                    {
+
+                        switch(menu.GetPressedItem())
+                        {
+                        case 0:
+                            scene.numer_mapy=0;
+                            wybor=true;
+                             Soldier.UpdateColisions(_Blocks,DeltaTime);
+                        break;
+                        case 1:
+                            scene.numer_mapy=1;
+                            wybor=true;
+
+                        break;
+                        case 2:
+                            scene.numer_mapy=2;
+                            wybor=true;
+                        break;
+                        case 3:
+                            wybor=true;
+                            window.close();
+                        break;
+                        }
+                    }
+
+                }
+
+             }
+
+            if(wybor==false){
+                 window.clear(sf::Color(150,150,150));
+                 menu.draw(window);
+            }
+            if(scene.numer_mapy==0&&wybor!=false){
+              // window.clear();
+               Soldier.UpdateB1(DeltaTime);
+               Zombie.UpdateB2(DeltaTime);
+               Soldier.UpdateColisions(_Blocks,DeltaTime);
+
+
+               scene.draw(window);
+               Soldier.Draw(window);
+               Zombie.Draw(window);
+
+            }
+            else if(scene.numer_mapy==1&& wybor!=false){
+                Soldier.UpdateB1(DeltaTime);
+                Zombie.UpdateB2(DeltaTime);
+                window.clear();
+                scene.draw(window);
+                Soldier.Draw(window);
+                Zombie.Draw(window);
+            }
+            else if(scene.numer_mapy==2&&wybor!=false){
+                Soldier.UpdateB1(DeltaTime);
+                Zombie.UpdateB2(DeltaTime);
+                window.clear();
+                scene.draw(window);
+                Soldier.Draw(window);
+                Zombie.Draw(window);
+            }
+            window.display();
+        }
 }

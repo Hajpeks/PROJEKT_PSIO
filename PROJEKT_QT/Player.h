@@ -1,12 +1,13 @@
 #include <SFML/Graphics.hpp>
 #include "Animation.h"
 #include "Collider.h"
-#include"Scene.h"
+
 
 class Player:public sf::Sprite
 {
 public:
-    Player(sf::Texture *texture,sf::Vector2u imageCount, float switchTime,float speed);
+    Player(sf::Texture *texture,sf::Vector2u imageCount, float switchTime,float speed);//int numer gracza
+    //if numer gracza=1 to wykonuje to i tamto else to inny gracz
     ~Player();
     Player(sf::Vector2u imageCount, float switchTime,float speed,sf::Texture *texture1);
 
