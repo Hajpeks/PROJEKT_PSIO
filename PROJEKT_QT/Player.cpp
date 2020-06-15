@@ -3,36 +3,36 @@
 #include <iostream>
 #include "Player.h"
 
-Player::Player(sf::Texture *texture,sf::Vector2u imageCount, float switchTime,float speed):
+Player::Player(sf::Texture *texture,sf::Vector2u imageCount, float switchTime,float speed,int numer_gracza):
     animation(texture,imageCount,switchTime)
 {
+ if(numer_gracza==1){
  this->speed=speed;
  row=0;
  faceRight=true;
- body1.setSize(sf::Vector2f(80,120));
+ //body1.setSize(sf::Vector2f(80,94));
  body1.setPosition(100.0f,800.0f);
- body1.setScale(1.5,1.5);
- body1.setTexture(texture);
-
-
+ body1.setScale(1.3,1.3);
+ body1.setTexture(*texture);
 }
-Player::Player(sf::Vector2u imageCount,float switchTime,float speed,sf::Texture *texture1):
-    animation(texture1,imageCount,switchTime)
-{
+ else if(numer_gracza==2){
      this->speed=speed;
      row=0;
      faceRight=true;
-//     body2.setSize(sf::Vector2f(80,120));
-//     body2.setPosition(1700,20);
-//     body2.setScale(1.5,1.5);
-//     body2.setTexture(texture1);
+    // body2.setSize(sf::Vector2f(80,92));
+     body2.setPosition(1700,20);
+     body2.setScale(1.3,1.3);
+     body2.setTexture(*texture);
+ }
 }
+
 Player::~Player()
 {
 
 }
 void Player::UpdateB1(float DeltaTime)
 {
+
     movement.x=0;
     movement.y=0;
 
@@ -60,6 +60,10 @@ void Player::UpdateB1(float DeltaTime)
     {
         faceRight=false;
     }
+    else
+    {
+        faceRight=true;
+    }
     animation.Update(row,DeltaTime,faceRight);
     body1.setTextureRect(animation.uvRect);
     body1.move(movement);
@@ -68,6 +72,7 @@ void Player::UpdateB1(float DeltaTime)
 
 void Player::UpdateB2(float DeltaTime)
 {
+
     movement.x=0;
     movement.y=0;
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
@@ -94,19 +99,47 @@ void Player::UpdateB2(float DeltaTime)
     {
         faceRight=true;
     }
+    else
+    {
+        faceRight=true;
+    }
     animation.Update(row,DeltaTime,faceRight);
     body2.setTextureRect(animation.uvRect);
     body2.move(movement);
+
 }
-void Player::UpdateColisions(std::vector<sf::Sprite> &Blocks,float &dt){
 
-    sf::FloatRect playerBounds = this->getGlobalBounds();
-    sf::FloatRect playerBoundsNext = this->getGlobalBounds();
-    playerBoundsNext.left = this->getPosition().x + this->movement.x * dt;
-    playerBoundsNext.top = this->getPosition().y + this->movement.y * dt;
-    std::cout<<playerBounds.top<<" "<<playerBounds.left<<" "<<playerBounds.width<<" "<<playerBounds.height<<std::endl;
-      std::cout<<playerBoundsNext.top<<" "<<playerBoundsNext.left<<" "<<playerBoundsNext.width<<" "<<playerBoundsNext.height<<std::endl;
+void Player::UpdateCollisionsB1(std::vector<sf::Sprite> &Blocks,float &dt){
 
+    sf::FloatRect playerBounds = body1.getGlobalBounds();
+    sf::FloatRect playerBoundsNext = body1.getGlobalBounds();
+    playerBoundsNext.left = body1.getPosition().x + this->movement.x * dt;
+    playerBoundsNext.top = body1.getPosition().y + this->movement.y * dt;
+
+    // Kolizja z ekranem
+
+    //PRZEJSCIE PRZEZ DOL
+    if(playerBounds.top+playerBounds.height>1070)
+    {
+        body1.setPosition(playerBounds.left,0);
+    }
+    //PRZEJSCIE GORA
+    if(playerBounds.top+playerBounds.height<80)
+    {
+        body1.setPosition(playerBounds.left,930);
+    }
+    //LEWA KRAWEDZ
+    if(playerBounds.left+playerBounds.width<100)
+    {
+        movement.x=0;
+        body1.setPosition(0,playerBounds.top);
+    }
+    //PRAWA KRAWEDZ
+    if(playerBounds.left+playerBounds.width>1900)
+    {
+        movement.x=0;
+        body1.setPosition(1810,playerBounds.top);
+    }
     for (auto& block : Blocks) {
 
         sf::FloatRect BlocksBounds = block.getGlobalBounds();
@@ -119,9 +152,9 @@ void Player::UpdateColisions(std::vector<sf::Sprite> &Blocks,float &dt){
                 && playerBounds.left + playerBounds.width > BlocksBounds.left
                 )
             {
-                std::cout<<"KOLIZJA"<<std::endl;
+                std::cout<<"KOLIZJA DOLNA"<<std::endl;
                 this->movement.y = 0;
-                this->setPosition(playerBounds.left, BlocksBounds.top - playerBounds.height);
+                body1.setPosition(playerBounds.left, BlocksBounds.top - playerBounds.height);
             }
 
             //Top Collision
@@ -131,9 +164,9 @@ void Player::UpdateColisions(std::vector<sf::Sprite> &Blocks,float &dt){
                 && playerBounds.left + playerBounds.width > BlocksBounds.left
                 )
             {
-                std::cout<<"Kolizja górna"<<std::endl;
+                std::cout<<"Kolizja gorna"<<std::endl;
                 this->movement.y = 0;
-                this->setPosition(playerBounds.left, BlocksBounds.top + BlocksBounds.height);
+                body1.setPosition(playerBounds.left, BlocksBounds.top + BlocksBounds.height);
             }
 
             //Right collisin
@@ -145,7 +178,7 @@ void Player::UpdateColisions(std::vector<sf::Sprite> &Blocks,float &dt){
             {
                   std::cout<<"Kolizja prawa"<<std::endl;
                 this->movement.x = 0;
-                this->setPosition(BlocksBounds.left - playerBounds.width, playerBounds.top);
+                body1.setPosition(BlocksBounds.left - playerBounds.width, playerBounds.top);
             }
 
             //Left Collision
@@ -157,14 +190,97 @@ void Player::UpdateColisions(std::vector<sf::Sprite> &Blocks,float &dt){
             {
                   std::cout<<"Kolizja lewa"<<std::endl;
                 this->movement.x = 0;
-                this->setPosition(BlocksBounds.left + BlocksBounds.width, playerBounds.top);
+                body1.setPosition(BlocksBounds.left + BlocksBounds.width, playerBounds.top);
             }
         }
 
 
     }
 }
+void Player::UpdateCollisionsB2(std::vector<sf::Sprite> &Blocks,float &dt){
 
+    //DLA EKRANU
+    //auto bounds=this->getGlobalBounds();
+    sf::FloatRect playerBounds = body2.getGlobalBounds();
+    sf::FloatRect playerBoundsNext = body2.getGlobalBounds();
+    playerBoundsNext.left = body2.getPosition().x + this->movement.x * dt;
+    playerBoundsNext.top = body2.getPosition().y + this->movement.y * dt;
+
+
+    if(playerBounds.top+playerBounds.height>1070)
+    {
+        body2.setPosition(playerBounds.left,0);
+    }
+    if(playerBounds.top+playerBounds.height<80)
+    {
+        body2.setPosition(playerBounds.left,930);
+    }
+    if(playerBounds.left+playerBounds.width<100)
+    {
+        movement.x=0;
+        body2.setPosition(0,playerBounds.top);
+    }
+    if(playerBounds.left+playerBounds.width>1900)
+    {
+        movement.x=0;
+        body2.setPosition(1810,playerBounds.top);
+    }
+    for (auto& block : Blocks) {
+
+        sf::FloatRect BlocksBounds = block.getGlobalBounds();
+        if (BlocksBounds.intersects(playerBoundsNext)) {
+
+            //Bottom collision
+            if (playerBounds.top < BlocksBounds.top
+                && playerBounds.top + playerBounds.height < BlocksBounds.top + BlocksBounds.height
+                && playerBounds.left < BlocksBounds.left + BlocksBounds.width
+                && playerBounds.left + playerBounds.width > BlocksBounds.left
+                )
+            {
+                std::cout<<"KOLIZJA DOLNA"<<std::endl;
+                this->movement.y = 0;
+                body2.setPosition(playerBounds.left, BlocksBounds.top - playerBounds.height);
+            }
+
+            //Top Collision
+            else if (playerBounds.top > BlocksBounds.top
+                && playerBounds.top + playerBounds.height > BlocksBounds.top + BlocksBounds.height
+                && playerBounds.left < BlocksBounds.left + BlocksBounds.width
+                && playerBounds.left + playerBounds.width > BlocksBounds.left
+                )
+            {
+                std::cout<<"Kolizja gorna"<<std::endl;
+                this->movement.y = 0;
+                body2.setPosition(playerBounds.left, BlocksBounds.top + BlocksBounds.height);
+            }
+
+            //Right collisin
+            if (playerBounds.left < BlocksBounds.left
+                && playerBounds.left + playerBounds.width < BlocksBounds.left + BlocksBounds.width
+                && playerBounds.top < BlocksBounds.top + BlocksBounds.height
+                && playerBounds.top + playerBounds.height > BlocksBounds.top
+                )
+            {
+                  std::cout<<"Kolizja prawa"<<std::endl;
+                this->movement.x = 0;
+                body2.setPosition(BlocksBounds.left - playerBounds.width, playerBounds.top);
+            }
+
+            //Left Collision
+            else if (playerBounds.left > BlocksBounds.left
+                && playerBounds.left + playerBounds.width > BlocksBounds.left + BlocksBounds.width
+                && playerBounds.top < BlocksBounds.top + BlocksBounds.height
+                && playerBounds.top + playerBounds.height > BlocksBounds.top
+                )
+            {
+                  std::cout<<"Kolizja lewa"<<std::endl;
+                this->movement.x = 0;
+                body2.setPosition(BlocksBounds.left + BlocksBounds.width, playerBounds.top);
+            }
+        }
+
+    }
+}
 void Player::Draw(sf::RenderWindow &window)
 {
     window.draw(body1);

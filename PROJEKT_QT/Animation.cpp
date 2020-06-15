@@ -31,7 +31,7 @@ void Animation::Update(int row,float DeltaTime,bool faceRight)
     uvRect.top=currentImage.y*uvRect.height;
     if(faceRight)
     {
-         uvRect.left=currentImage.x*uvRect.width;
+         uvRect.left=currentImage.x*std::abs(uvRect.width);
          uvRect.width=std::abs(uvRect.width);
     }
     else

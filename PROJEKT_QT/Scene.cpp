@@ -17,10 +17,10 @@ Scene::Scene(){
     Fence.setSrgb(true);
     if (!Fence.loadFromFile("fence.png")) {throw("can't do shit"); }
 //Żolnierzyk
-    if (!soldierTexture.loadFromFile("soldier.png")) { throw("can't do shit"); }
+    if (!soldierTexture.loadFromFile("NewSoldier.png")) { throw("can't do shit"); }
     soldierTexture.setSrgb(true);
 //Zombie
-    if (!zombieTexture.loadFromFile("zombie.png")) { throw("can't do shit"); }
+    if (!zombieTexture.loadFromFile("NewZombie.png")) { throw("can't do shit"); }
     zombieTexture.setSrgb(true);
 
     this->generateBlocks();
@@ -139,9 +139,9 @@ void Scene::draw(sf::RenderWindow &window)
 void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
 
 
-        Player Soldier(&soldierTexture,sf::Vector2u(2,1),0.3,400.0f);
-        Player Zombie(sf::Vector2u(2,1),0.3,400.0f,&zombieTexture);
-        Soldier.setPosition(100,800);
+        Player Soldier(&soldierTexture,sf::Vector2u(2,1),0.3,600.0f,1);
+        Player Zombie(&zombieTexture,sf::Vector2u(2,1),0.3,600,2);
+
 
         sf::Event event;
         sf::Clock clock;
@@ -173,8 +173,7 @@ void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
                         {
                         case 0:
                             scene.numer_mapy=0;
-                            wybor=true;
-                             Soldier.UpdateColisions(_Blocks,DeltaTime);
+                            wybor=true;                     
                         break;
                         case 1:
                             scene.numer_mapy=1;
@@ -204,7 +203,8 @@ void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
               // window.clear();
                Soldier.UpdateB1(DeltaTime);
                Zombie.UpdateB2(DeltaTime);
-               Soldier.UpdateColisions(_Blocks,DeltaTime);
+               Soldier.UpdateCollisionsB1(_Blocks,DeltaTime);
+               Zombie.UpdateCollisionsB2(_Blocks,DeltaTime);
 
 
                scene.draw(window);
