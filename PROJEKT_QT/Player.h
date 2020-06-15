@@ -22,7 +22,10 @@ public:
 
 private:
 
-
+    float left_bound=0;
+    float right_bound=1920;
+    float top_bound=0;
+    float bottom_bound=1080;
 
     int numer_gracza;
 

@@ -111,6 +111,7 @@ void Player::UpdateB2(float DeltaTime)
 
 void Player::UpdateCollisionsB1(std::vector<sf::Sprite> &Blocks,float &dt){
 
+
     sf::FloatRect playerBounds = body1.getGlobalBounds();
     sf::FloatRect playerBoundsNext = body1.getGlobalBounds();
     playerBoundsNext.left = body1.getPosition().x + this->movement.x * dt;
@@ -129,16 +130,16 @@ void Player::UpdateCollisionsB1(std::vector<sf::Sprite> &Blocks,float &dt){
         body1.setPosition(playerBounds.left,930);
     }
     //LEWA KRAWEDZ
-    if(playerBounds.left+playerBounds.width<100)
+    if(playerBounds.left<0)
     {
         movement.x=0;
-        body1.setPosition(0,playerBounds.top);
+        body1.setPosition(left_bound,playerBounds.top);//TUTAJ WROCIC
     }
     //PRAWA KRAWEDZ
-    if(playerBounds.left+playerBounds.width>1900)
+    if(playerBounds.left+playerBounds.width>1920-1)
     {
         movement.x=0;
-        body1.setPosition(1810,playerBounds.top);
+        body1.setPosition(right_bound-playerBounds.width,playerBounds.top);
     }
     for (auto& block : Blocks) {
 
@@ -200,11 +201,13 @@ void Player::UpdateCollisionsB1(std::vector<sf::Sprite> &Blocks,float &dt){
 void Player::UpdateCollisionsB2(std::vector<sf::Sprite> &Blocks,float &dt){
 
     //DLA EKRANU
-    //auto bounds=this->getGlobalBounds();
     sf::FloatRect playerBounds = body2.getGlobalBounds();
     sf::FloatRect playerBoundsNext = body2.getGlobalBounds();
     playerBoundsNext.left = body2.getPosition().x + this->movement.x * dt;
     playerBoundsNext.top = body2.getPosition().y + this->movement.y * dt;
+
+//    std::cout<< bounds.left<<" "<<bounds.width<<std::endl;
+//    std::cout<<bounds.top<<" "<<bounds.height<<std::endl;
 
 
     if(playerBounds.top+playerBounds.height>1070)
@@ -215,15 +218,16 @@ void Player::UpdateCollisionsB2(std::vector<sf::Sprite> &Blocks,float &dt){
     {
         body2.setPosition(playerBounds.left,930);
     }
-    if(playerBounds.left+playerBounds.width<100)
+    if(playerBounds.left<0)
     {
         movement.x=0;
-        body2.setPosition(0,playerBounds.top);
+        body2.setPosition(left_bound,playerBounds.top);
     }
-    if(playerBounds.left+playerBounds.width>1900)
+    //PRAWA KOLIZJA
+    if(playerBounds.left+playerBounds.width>1920-1)
     {
         movement.x=0;
-        body2.setPosition(1810,playerBounds.top);
+        body2.setPosition(right_bound-playerBounds.width,playerBounds.top);
     }
     for (auto& block : Blocks) {
 

@@ -139,8 +139,8 @@ void Scene::draw(sf::RenderWindow &window)
 void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
 
 
-        Player Soldier(&soldierTexture,sf::Vector2u(2,1),0.3,600.0f,1);
-        Player Zombie(&zombieTexture,sf::Vector2u(2,1),0.3,600,2);
+        Player Soldier(&soldierTexture,sf::Vector2u(2,1),0.3,350.0f,1);
+        Player Zombie(&zombieTexture,sf::Vector2u(2,1),0.3,350,2);
 
 
         sf::Event event;
@@ -215,6 +215,9 @@ void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
             else if(scene.numer_mapy==1&& wybor!=false){
                 Soldier.UpdateB1(DeltaTime);
                 Zombie.UpdateB2(DeltaTime);
+                Soldier.UpdateCollisionsB1(_Blocks,DeltaTime);
+                Zombie.UpdateCollisionsB2(_Blocks,DeltaTime);
+
                 window.clear();
                 scene.draw(window);
                 Soldier.Draw(window);
@@ -223,6 +226,9 @@ void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
             else if(scene.numer_mapy==2&&wybor!=false){
                 Soldier.UpdateB1(DeltaTime);
                 Zombie.UpdateB2(DeltaTime);
+                Soldier.UpdateCollisionsB1(_Blocks,DeltaTime);
+                Zombie.UpdateCollisionsB2(_Blocks,DeltaTime);
+
                 window.clear();
                 scene.draw(window);
                 Soldier.Draw(window);
