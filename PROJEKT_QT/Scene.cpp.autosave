@@ -22,6 +22,9 @@ Scene::Scene(){
 //Zombie
     if (!zombieTexture.loadFromFile("Tekstury/NewZombie.png")) { throw("can't do shit"); }
     zombieTexture.setSrgb(true);
+//NABÓJ
+    if(!bulletTexture.loadFromFile("Tekstury/bullet.png")){throw("Can't do shit");}
+    bulletTexture.setSrgb(true);    
 
     this->generateBlocks();
     this->generate_bacground(Wooden_Backround,Blue_Background,Red_Background);

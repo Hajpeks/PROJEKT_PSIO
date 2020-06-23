@@ -9,17 +9,17 @@ Menu::Menu(float width, float height)
 
     menu[0].setFont(font);
     menu[0].setFillColor(sf::Color::Green);
-    menu[0].setString("ShootingGame Map1");
+    menu[0].setString("Red Map");
     menu[0].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 1));
 
     menu[1].setFont(font);
     menu[1].setFillColor(sf::Color::White);
-    menu[1].setString("ShootingGame Map2");
+    menu[1].setString("Blue Map");
     menu[1].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 2));
 
     menu[2].setFont(font);
     menu[2].setFillColor(sf::Color::White);
-    menu[2].setString("ShootingGame Map3");
+    menu[2].setString("Wooden Map");
     menu[2].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 3));
 
     menu[3].setFont(font);

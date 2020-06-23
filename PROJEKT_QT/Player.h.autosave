@@ -18,9 +18,8 @@ public:
     void UpdateCollisionsB1(std::vector<sf::Sprite> &Blocks,  float &dt);
     void UpdateCollisionsB2(std::vector<sf::Sprite> &Blocks,  float &dt);
 
-
+//DO STRZAŁÓW
     bool isFiring=false;
-
     std::vector<Bullet> vecBullets;
 
 private:
