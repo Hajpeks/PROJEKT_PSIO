@@ -768,7 +768,8 @@ Player.o: ../PROJEKT_QT/Player.cpp C:/SFML/include/SFML/Window.hpp \
 		C:/SFML/include/SFML/Graphics/Text.hpp \
 		C:/SFML/include/SFML/Graphics/VertexBuffer.hpp \
 		../PROJEKT_QT/Player.h \
-		../PROJEKT_QT/Animation.h
+		../PROJEKT_QT/Animation.h \
+		../PROJEKT_QT/Bullet.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Player.o ..\PROJEKT_QT\Player.cpp
 
 Scene.o: ../PROJEKT_QT/Scene.cpp ../PROJEKT_QT/Scene.h \
@@ -848,7 +849,8 @@ Scene.o: ../PROJEKT_QT/Scene.cpp ../PROJEKT_QT/Scene.h \
 		C:/SFML/include/SFML/Graphics/VertexBuffer.hpp \
 		../PROJEKT_QT/Menu.h \
 		../PROJEKT_QT/Player.h \
-		../PROJEKT_QT/Animation.h
+		../PROJEKT_QT/Animation.h \
+		../PROJEKT_QT/Bullet.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Scene.o ..\PROJEKT_QT\Scene.cpp
 
 main.o: ../PROJEKT_QT/main.cpp C:/SFML/include/SFML/Window.hpp \
@@ -928,7 +930,8 @@ main.o: ../PROJEKT_QT/main.cpp C:/SFML/include/SFML/Window.hpp \
 		../PROJEKT_QT/Scene.h \
 		../PROJEKT_QT/Menu.h \
 		../PROJEKT_QT/Player.h \
-		../PROJEKT_QT/Animation.h
+		../PROJEKT_QT/Animation.h \
+		../PROJEKT_QT/Bullet.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ..\PROJEKT_QT\main.cpp
 
 ####### Install
