@@ -7,12 +7,12 @@
 class Bullet{
 
 public:
-    Bullet(sf::Vector2f size);
+    Bullet(sf::Texture &tekturka);
 
     void draw(sf::RenderWindow &window);
     void SetPos(sf::Vector2f newpos);
 
-    void fire(int speed);
+    void fire(int bulletSpeed);
 
 private:
 

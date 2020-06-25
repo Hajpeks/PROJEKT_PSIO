@@ -6,6 +6,9 @@
 Player::Player(sf::Texture *texture,sf::Vector2u imageCount, float switchTime,float speed,int numer_gracza):
     animation(texture,imageCount,switchTime)
 {
+    if(!bulletTexture.loadFromFile("Tekstury/bullet.png")){throw("Can't do shit");}
+    bulletTexture.setSrgb(true);
+
  if(numer_gracza==1){
  this->speed=speed;
  row=0;
@@ -32,7 +35,7 @@ Player::~Player()
 }
 void Player::UpdateB1(float DeltaTime)
 {
- //   sf::Event event;
+   sf::Time czas;
     movement.x=0;
     movement.y=0;
     isFiring=false;
@@ -53,15 +56,19 @@ void Player::UpdateB1(float DeltaTime)
     {
         movement.y +=speed*DeltaTime;
     }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)){
-        isFiring=true;
-        std::cout<<"WYKONANO LCONTROL"<<std::endl;
-    }
-//    if(event.type==sf::Event::KeyReleased){
-//        if(event.key.code==sf::Keyboard::LControl){
-//            isFiring=true;
-//        }
+   //void Update attack
+//    if(sf::Keyboard::isKeyPressed(sf::Keyboard::LControl))
+//      {
+//       isFiring=true;
+//      }
+
+//      if(isFiring==true){
+//       Bullet nowakula(bulletTexture);
+//       nowakula.SetPos(sf::Vector2f(body1.getPosition().x+105,body1.getPosition().y+77));
+//       vecBullets.emplace_back(nowakula);
+//       isFiring=false;
 //    }
+
     if(movement.x>0.0f)
     {
         faceRight=true;
@@ -75,23 +82,9 @@ void Player::UpdateB1(float DeltaTime)
         faceRight=true;
     }
 
-    if(isFiring==true){
-
-        Bullet nowakula(sf::Vector2f(1,1));
-        nowakula.SetPos(sf::Vector2f(body1.getPosition().x,body1.getPosition().y));
-        nowakula.fire(200);
-        std::cout<<"SZCZAL"<<std::endl;
-        vecBullets.emplace_back(nowakula);
-        isFiring=false;
-    }
-
     animation.Update(row,DeltaTime,faceRight);
     body1.setTextureRect(animation.uvRect);
     body1.move(movement);
-//    for(auto &el:vecBullets)
-//    {
-//        window.draw(el)
-//    }
 
 }
 
@@ -315,5 +308,10 @@ void Player::Draw(sf::RenderWindow &window)
 {
     window.draw(body1);
     window.draw(body2);
+    for(unsigned int i=0;i<vecBullets.size();i++)
+    {
+         vecBullets[i].draw(window);
+         vecBullets[i].fire(3);
+    }
 
 }

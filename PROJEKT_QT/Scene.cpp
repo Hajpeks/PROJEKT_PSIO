@@ -22,6 +22,9 @@ Scene::Scene(){
 //Zombie
     if (!zombieTexture.loadFromFile("Tekstury/NewZombie.png")) { throw("can't do shit"); }
     zombieTexture.setSrgb(true);
+//NABÓJ
+//    if(!bulletTexture.loadFromFile("Tekstury/bullet.png")){throw("Can't do shit");}
+//    bulletTexture.setSrgb(true);
 
     this->generateBlocks();
     this->generate_bacground(Wooden_Backround,Blue_Background,Red_Background);
@@ -137,7 +140,8 @@ void Scene::draw(sf::RenderWindow &window)
 
 }
 void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
-
+    //SOldier soldier(..);
+    // zombie zombie(..);
 
         Player Soldier(&soldierTexture,sf::Vector2u(2,1),0.3,350.0f,1);
         Player Zombie(&zombieTexture,sf::Vector2u(2,1),0.3,350,2);
@@ -154,6 +158,9 @@ void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
                 window.close();
                 }
                 if(event.type==sf::Event::KeyReleased){
+
+                  //DO MENU //
+
                     if(isMenu){
                     if(event.key.code==sf::Keyboard::Down)
                     {
@@ -163,10 +170,15 @@ void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
                     {
                         menu.MoveUp();
                     }}
+
+               //KONIEC MENU  //
+
                     if(event.key.code==sf::Keyboard::Escape)
                     {
                         isMenu=true;
                         wybor=false;
+                        Zombie.ResetBody();
+                        Soldier.ResetBody();
                     }
                     if(event.key.code==sf::Keyboard::Enter)
                     {
@@ -192,7 +204,12 @@ void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
                         break;
                         }
                     }
+                         Soldier.UpdateAttack(event);
 
+////                        if(event.key.code==sf::Keyboard::LControl){
+////                            //Ten kod
+//                        }
+//}
                 }
 
              }
@@ -203,6 +220,7 @@ void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
             }
             if(scene.numer_mapy==0&&wybor!=false){
                Soldier.UpdateB1(DeltaTime);
+//               Soldier.UpdateAttack();
                Zombie.UpdateB2(DeltaTime);
                Soldier.UpdateCollisionsB1(_Blocks,DeltaTime);
                Zombie.UpdateCollisionsB2(_Blocks,DeltaTime);
