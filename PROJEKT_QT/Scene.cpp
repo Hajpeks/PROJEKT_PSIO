@@ -204,11 +204,10 @@ void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
                         break;
                         }
                     }
-                         Soldier.UpdateAttack(event,1);
-                         Zombie.UpdateAttack(event,2);
+                        Soldier.UpdateAttack(event);
+                         Zombie.UpdateAttack(event);
 
-////                        if(event.key.code==sf::Keyboard::LControl){
-////                            //Ten kod
+
 //                        }
 //}
                 }
@@ -220,39 +219,39 @@ void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
                  menu.draw(window);
             }
             if(scene.numer_mapy==0&&wybor!=false){
-               Soldier.UpdateB1(DeltaTime);
+               Soldier.Update(DeltaTime);
 //               Soldier.UpdateAttack();
-               Zombie.UpdateB2(DeltaTime);
-               Soldier.UpdateCollisionsB1(_Blocks,DeltaTime);
-               Zombie.UpdateCollisionsB2(_Blocks,DeltaTime);
+               Zombie.Update(DeltaTime);
+               Soldier.UpdateCollisions(_Blocks,DeltaTime);
+               Zombie.UpdateCollisions(_Blocks,DeltaTime);
 
 
                scene.draw(window);
-               Soldier.Draw(window);
-               Zombie.Draw(window);
+               Soldier.Drawing(window);
+               Zombie.Drawing(window);
 
             }
             else if(scene.numer_mapy==1&& wybor!=false){
-                Soldier.UpdateB1(DeltaTime);
-                Zombie.UpdateB2(DeltaTime);
-                Soldier.UpdateCollisionsB1(_Blocks,DeltaTime);
-                Zombie.UpdateCollisionsB2(_Blocks,DeltaTime);
+                Soldier.Update(DeltaTime);
+                Zombie.Update(DeltaTime);
+                Soldier.UpdateCollisions(_Blocks,DeltaTime);
+                Zombie.UpdateCollisions(_Blocks,DeltaTime);
 
                 window.clear();
                 scene.draw(window);
-                Soldier.Draw(window);
-                Zombie.Draw(window);
+                Soldier.Drawing(window);
+                Zombie.Drawing(window);
             }
             else if(scene.numer_mapy==2&&wybor!=false){
-                Soldier.UpdateB1(DeltaTime);
-                Zombie.UpdateB2(DeltaTime);
-                Soldier.UpdateCollisionsB1(_Blocks,DeltaTime);
-                Zombie.UpdateCollisionsB2(_Blocks,DeltaTime);
+                Soldier.Update(DeltaTime);
+                Zombie.Update(DeltaTime);
+                Soldier.UpdateCollisions(_Blocks,DeltaTime);
+                Zombie.UpdateCollisions(_Blocks,DeltaTime);
 
                 window.clear();
                 scene.draw(window);
-                Soldier.Draw(window);
-                Zombie.Draw(window);
+                Soldier.Drawing(window);
+                Zombie.Drawing(window);
             }
             window.display();
         }

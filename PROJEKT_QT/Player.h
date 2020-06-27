@@ -11,33 +11,40 @@ public:
 
     //Return position
     void ResetBody(){
-        body1.setPosition(100.0f,800.0f);
-        body2.setPosition(1700,20);
+        if(numer_gracza==1){
+        setPosition(100.0f,800.0f);
+        }
+        else
+        setPosition(1700,20);
     }
 
     //RUCH
-    void UpdateB1(float DeltaTime);
-    void UpdateB2(float DeltaTime);
-    void Draw(sf::RenderWindow &window);
+    void Update(float DeltaTime);
+    void Drawing(sf::RenderWindow &window);
 
     //KOLIZJE
-    void UpdateCollisionsB1(std::vector<sf::Sprite> &Blocks,  float &dt);
-    void UpdateCollisionsB2(std::vector<sf::Sprite> &Blocks,  float &dt);
+    void UpdateCollisions(std::vector<sf::Sprite> &Blocks,  float &dt);
 
 //DO STRZAŁÓW
-    void UpdateAttack(sf::Event &event,int  numer_gracza)
+    void UpdateAttack(sf::Event &event)
     {
         if(numer_gracza==1){
         if(event.key.code==sf::Keyboard::LControl)
           {
            Bullet nowakula(bulletTexture,faceRight/*, body1.getGlobalBounds()*/ /*sf::FloatRect body*/);
-           nowakula.SetPos(sf::Vector2f(body1.getPosition().x+105,body1.getPosition().y+77));//DO konsturkotra
+           nowakula.SetPos(sf::Vector2f(getPosition().x+105,getPosition().y+77));//DO konsturkotra
            vecBullets.emplace_back(nowakula);
-        }}
+          // nowakula.bulletCollision(*this,vecBullets);
+        }
+        for(auto &el:vecBullets)
+        {
+            el.bulletCollision(*this);
+        }
+        }
         if(numer_gracza==2){
             if(event.key.code==sf::Keyboard::RControl){
                 Bullet nowakula(bulletTexture,faceRight);
-                nowakula.SetPos(sf::Vector2f(body2.getPosition().x, body2.getPosition().y+77));
+                nowakula.SetPos(sf::Vector2f(getPosition().x, getPosition().y+77));
                 vecBullets.emplace_back(nowakula);
             }
         }
@@ -57,7 +64,6 @@ private:
 
     int numer_gracza;
 
-    sf::Sprite body1,body2;
     sf::Texture bulletTexture;
     Animation animation;
     sf::Vector2f movement;

@@ -4,18 +4,18 @@
 #include <SFML/Graphics.hpp>
 //#include "Player.h"
 
-class Bullet{
+class Bullet:public sf::Sprite{
 
 public:
     Bullet(sf::Texture &tekturka,bool &Shotright);
 
-    void draw(sf::RenderWindow &window);
+    void drawing(sf::RenderWindow &window);
     void SetPos(sf::Vector2f newpos);
     void fire();
     //Kolizja gracza z kulka
-    void bulletCollision();
+    void bulletCollision(sf::Sprite &body/*,float &dt*/);
 
 private:
     float bulletspeed=3.0f;
-    sf::Sprite bullet;
+   // sf::Sprite bullet;
 };

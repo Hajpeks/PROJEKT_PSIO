@@ -1,6 +1,3 @@
-#ifndef PLAYERS_H
-#define PLAYERS_H
-#endif // PLAYERS_H
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>

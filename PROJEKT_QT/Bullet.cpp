@@ -6,10 +6,10 @@
 
 void Bullet::fire(){
 
-    bullet.move(bulletspeed,0);
+    this->move(bulletspeed,0);
 }
-void Bullet::draw(sf::RenderWindow &window){
-    window.draw(bullet);
+void Bullet::drawing(sf::RenderWindow &window){
+    window.draw(*this);
 }
 
 Bullet::Bullet(sf::Texture &teksturka,bool &Shotright /*sf::FloatRect body*/){
@@ -17,10 +17,29 @@ Bullet::Bullet(sf::Texture &teksturka,bool &Shotright /*sf::FloatRect body*/){
         bulletspeed=(-std::abs(bulletspeed));
     }
     ///...setposition(body.x,....)
-    bullet.setScale(0.3,0.3);
-    bullet.setTexture(teksturka);
+    this->setScale(0.3,0.3);
+    this->setTexture(teksturka);
 }
 void Bullet::SetPos(sf::Vector2f newpos){
-    bullet.setPosition(newpos);
+    this->setPosition(newpos);
+}
+
+void Bullet::bulletCollision(sf::Sprite &body/*, float &dt*/){
+
+   //std::vector<Bullet> vecBullets;
+    sf::FloatRect bodybound=body.getGlobalBounds();
+    sf::FloatRect bulletBound=this->getGlobalBounds();
+    if(bulletBound.intersects(bodybound)){
+        std::cout<<"strzal w kolano"<<std::endl;
+//    for (auto& bullet : vecBullets) {
+
+//        sf::FloatRect bulletBounds = bullet.getGlobalBounds();
+//        if (bulletBounds.intersects(bodybound)) {
+
+//            std::cout<<"STRZAL W KOLANO"<<std::endl;
+//            }
+
+
+}
 }
 
