@@ -25,18 +25,28 @@ public:
     void UpdateCollisionsB2(std::vector<sf::Sprite> &Blocks,  float &dt);
 
 //DO STRZAŁÓW
-    void UpdateAttack(sf::Event &event)
+    void UpdateAttack(sf::Event &event,int  numer_gracza)
     {
+        if(numer_gracza==1){
         if(event.key.code==sf::Keyboard::LControl)
           {
-           Bullet nowakula(bulletTexture);
-           nowakula.SetPos(sf::Vector2f(body1.getPosition().x+105,body1.getPosition().y+77));
+           Bullet nowakula(bulletTexture,faceRight/*, body1.getGlobalBounds()*/ /*sf::FloatRect body*/);
+           nowakula.SetPos(sf::Vector2f(body1.getPosition().x+105,body1.getPosition().y+77));//DO konsturkotra
            vecBullets.emplace_back(nowakula);
+        }}
+        if(numer_gracza==2){
+            if(event.key.code==sf::Keyboard::RControl){
+                Bullet nowakula(bulletTexture,faceRight);
+                nowakula.SetPos(sf::Vector2f(body2.getPosition().x, body2.getPosition().y+77));
+                vecBullets.emplace_back(nowakula);
+            }
         }
     }
+
+
     bool isFiring=false;
     std::vector<Bullet> vecBullets;
-    float timer=1.0f;
+
 
 private:
 

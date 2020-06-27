@@ -9,7 +9,8 @@ SOURCES += \
         Menu.cpp \
         Player.cpp \
         Scene.cpp \
-        main.cpp
+        main.cpp \
+        Soldier.cpp
 INCLUDEPATH += "C:/SFML/include"
 LIBS += -L"C:/SFML/lib"
 CONFIG(debug, debug|release){
@@ -25,4 +26,5 @@ HEADERS += \
     Bullet.h \
     Menu.h \
     Player.h \
-    Scene.h
+    Scene.h \
+    Soldier.h

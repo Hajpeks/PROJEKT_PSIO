@@ -7,14 +7,14 @@
 class Bullet{
 
 public:
-    Bullet(sf::Texture &tekturka);
+    Bullet(sf::Texture &tekturka,bool &Shotright);
 
     void draw(sf::RenderWindow &window);
     void SetPos(sf::Vector2f newpos);
 
-    void fire(int bulletSpeed);
+    void fire();
 
 private:
-
+    float bulletspeed=3.0f;
     sf::Sprite bullet;
 };

@@ -204,7 +204,8 @@ void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
                         break;
                         }
                     }
-                         Soldier.UpdateAttack(event);
+                         Soldier.UpdateAttack(event,1);
+                         Zombie.UpdateAttack(event,2);
 
 ////                        if(event.key.code==sf::Keyboard::LControl){
 ////                            //Ten kod

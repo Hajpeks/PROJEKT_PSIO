@@ -56,18 +56,6 @@ void Player::UpdateB1(float DeltaTime)
     {
         movement.y +=speed*DeltaTime;
     }
-   //void Update attack
-//    if(sf::Keyboard::isKeyPressed(sf::Keyboard::LControl))
-//      {
-//       isFiring=true;
-//      }
-
-//      if(isFiring==true){
-//       Bullet nowakula(bulletTexture);
-//       nowakula.SetPos(sf::Vector2f(body1.getPosition().x+105,body1.getPosition().y+77));
-//       vecBullets.emplace_back(nowakula);
-//       isFiring=false;
-//    }
 
     if(movement.x>0.0f)
     {
@@ -112,15 +100,15 @@ void Player::UpdateB2(float DeltaTime)
     }
     if(movement.x>0.0f)
     {
-        faceRight=false;
+        faceRight=true;
     }
     else if(movement.x<0.0f)
     {
-        faceRight=true;
+        faceRight=false;
     }
     else
     {
-        faceRight=true;
+        faceRight=false;
     }
     animation.Update(row,DeltaTime,faceRight);
     body2.setTextureRect(animation.uvRect);
@@ -311,7 +299,7 @@ void Player::Draw(sf::RenderWindow &window)
     for(unsigned int i=0;i<vecBullets.size();i++)
     {
          vecBullets[i].draw(window);
-         vecBullets[i].fire(3);
+         vecBullets[i].fire();
     }
 
 }
