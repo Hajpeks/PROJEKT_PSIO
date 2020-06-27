@@ -1,11 +1,11 @@
-#ifndef SOLDIER_H
-#define SOLDIER_H
+//#include "Player.h"
+
+//class Soldier: public Player
+//{
+//public:
+//    Soldier();
+
+//private:
+//};
 
 
-class Soldier
-{
-public:
-    Soldier();
-};
-
-#endif // SOLDIER_H

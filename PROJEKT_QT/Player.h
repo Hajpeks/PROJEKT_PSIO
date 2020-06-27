@@ -7,12 +7,12 @@ class Player:public sf::Sprite
 {
 public:
     Player(sf::Texture *texture,sf::Vector2u imageCount, float switchTime,float speed,int numer_gracza);
-    ~Player();
+    ~Player(){};
 
     //Return position
     void ResetBody(){
         body1.setPosition(100.0f,800.0f);
-         body2.setPosition(1700,20);
+        body2.setPosition(1700,20);
     }
 
     //RUCH

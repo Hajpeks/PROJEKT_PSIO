@@ -1,6 +1,6 @@
-#include "soldier.h"
+//#include "soldier.h"
 
-Soldier::Soldier()
-{
+//Soldier::Soldier()
+//{
 
-}
+//}

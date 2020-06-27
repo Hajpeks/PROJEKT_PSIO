@@ -11,8 +11,9 @@ public:
 
     void draw(sf::RenderWindow &window);
     void SetPos(sf::Vector2f newpos);
-
     void fire();
+    //Kolizja gracza z kulka
+    void bulletCollision();
 
 private:
     float bulletspeed=3.0f;

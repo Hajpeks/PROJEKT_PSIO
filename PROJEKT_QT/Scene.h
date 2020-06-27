@@ -12,7 +12,7 @@ std::vector<sf::Sprite> _Blocks;
 //Tekstury
 sf::Texture Wooden_Backround,Red_Background,Blue_Background,Cactus,Fence;
 sf::Texture soldierTexture,zombieTexture;
-sf::RectangleShape body1,body2;
+
 //inne zmienne
 int numer_mapy;
 float DeltaTime;

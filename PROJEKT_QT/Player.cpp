@@ -6,14 +6,12 @@
 Player::Player(sf::Texture *texture,sf::Vector2u imageCount, float switchTime,float speed,int numer_gracza):
     animation(texture,imageCount,switchTime)
 {
-    if(!bulletTexture.loadFromFile("Tekstury/bullet.png")){throw("Can't do shit");}
-    bulletTexture.setSrgb(true);
+   if(!bulletTexture.loadFromFile("Tekstury/bullet.png")){throw("Can't do shit");}
+   bulletTexture.setSrgb(true);
 
  if(numer_gracza==1){
  this->speed=speed;
  row=0;
- faceRight=true;
- //body1.setSize(sf::Vector2f(80,94));
  body1.setPosition(100.0f,800.0f);
  body1.setScale(1.3,1.3);
  body1.setTexture(*texture);
@@ -21,24 +19,17 @@ Player::Player(sf::Texture *texture,sf::Vector2u imageCount, float switchTime,fl
  else if(numer_gracza==2){
      this->speed=speed;
      row=0;
-     faceRight=true;
-    // body2.setSize(sf::Vector2f(80,92));
      body2.setPosition(1700,20);
      body2.setScale(1.3,1.3);
      body2.setTexture(*texture);
  }
 }
 
-Player::~Player()
-{
-
-}
 void Player::UpdateB1(float DeltaTime)
 {
-   sf::Time czas;
+
     movement.x=0;
     movement.y=0;
-    isFiring=false;
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
@@ -212,10 +203,6 @@ void Player::UpdateCollisionsB2(std::vector<sf::Sprite> &Blocks,float &dt){
     sf::FloatRect playerBoundsNext = body2.getGlobalBounds();
     playerBoundsNext.left = body2.getPosition().x + this->movement.x * dt;
     playerBoundsNext.top = body2.getPosition().y + this->movement.y * dt;
-
-//    std::cout<< bounds.left<<" "<<bounds.width<<std::endl;
-//    std::cout<<bounds.top<<" "<<bounds.height<<std::endl;
-
 
     if(playerBounds.top+playerBounds.height>1070)
     {

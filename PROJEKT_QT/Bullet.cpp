@@ -19,7 +19,6 @@ Bullet::Bullet(sf::Texture &teksturka,bool &Shotright /*sf::FloatRect body*/){
     ///...setposition(body.x,....)
     bullet.setScale(0.3,0.3);
     bullet.setTexture(teksturka);
-    //setposition nie powinno byc?
 }
 void Bullet::SetPos(sf::Vector2f newpos){
     bullet.setPosition(newpos);
