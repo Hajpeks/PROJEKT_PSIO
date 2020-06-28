@@ -26,7 +26,7 @@ void Bullet::SetPos(sf::Vector2f newpos){
 
 void Bullet::bulletCollision(sf::Sprite &body/*, float &dt*/){
 
-   //std::vector<Bullet> vecBullets;
+  // std::vector<Bullet> vecBullets;
     sf::FloatRect bodybound=body.getGlobalBounds();
     sf::FloatRect bulletBound=this->getGlobalBounds();
     if(bulletBound.intersects(bodybound)){
@@ -38,7 +38,7 @@ void Bullet::bulletCollision(sf::Sprite &body/*, float &dt*/){
 
 //            std::cout<<"STRZAL W KOLANO"<<std::endl;
 //            }
-
+//    }
 
 }
 }

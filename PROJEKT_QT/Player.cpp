@@ -103,7 +103,6 @@ else if(numer_gracza==2){
 }
 
 
-
 void Player::UpdateCollisions(std::vector<sf::Sprite> &Blocks,float &dt){
 
 

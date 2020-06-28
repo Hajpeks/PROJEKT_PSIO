@@ -44,8 +44,11 @@ public:
         if(numer_gracza==2){
             if(event.key.code==sf::Keyboard::RControl){
                 Bullet nowakula(bulletTexture,faceRight);
-                nowakula.SetPos(sf::Vector2f(getPosition().x, getPosition().y+77));
+                nowakula.SetPos(sf::Vector2f(getPosition().x-10, getPosition().y+100));
                 vecBullets.emplace_back(nowakula);
+            }
+            for(auto &el:vecBullets){
+                el.bulletCollision(*this);
             }
         }
     }
