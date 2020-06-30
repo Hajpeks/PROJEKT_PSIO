@@ -102,7 +102,6 @@ else if(numer_gracza==2){
     this->move(movement);
 }
 
-
 void Player::UpdateCollisions(std::vector<sf::Sprite> &Blocks,float &dt){
 
 
@@ -121,7 +120,7 @@ void Player::UpdateCollisions(std::vector<sf::Sprite> &Blocks,float &dt){
     //PRZEJSCIE GORA
     if(playerBounds.top+playerBounds.height<80)
     {
-        setPosition(playerBounds.left,930);
+        setPosition(playerBounds.left,900);
     }
     //LEWA KRAWEDZ
     if(playerBounds.left<0)
@@ -193,14 +192,32 @@ void Player::UpdateCollisions(std::vector<sf::Sprite> &Blocks,float &dt){
    }
 }
 
+void Player::BulletCollision(std::vector<sf::Sprite> &bloczki){
+
+    bool bufor=false;
+        for(auto naboj=Bullets.begin();naboj!=Bullets.end();naboj++){
+            bufor=false;
+        for(auto &el:bloczki){
+            if(naboj->getGlobalBounds().intersects(el.getGlobalBounds())){
+                naboj=Bullets.erase(naboj);
+                bufor=true;
+            }
+        }
+        if(bufor==true){
+            naboj--;
+        }
+     }
+
+}
+
+
 void Player::Drawing(sf::RenderWindow &window)
 {
     window.draw(*this);
-   // window.draw(body2);
-    for(unsigned int i=0;i<vecBullets.size();i++)
+    for(unsigned int i=0;i<Bullets.size();i++)
     {
-         vecBullets[i].drawing(window);
-         vecBullets[i].fire();
+         Bullets[i].drawing(window);
+         Bullets[i].fire();
     }
 
 }

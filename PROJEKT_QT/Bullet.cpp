@@ -24,22 +24,22 @@ void Bullet::SetPos(sf::Vector2f newpos){
     this->setPosition(newpos);
 }
 
-void Bullet::bulletCollision(sf::Sprite &body/*, float &dt*/){
+//void Bullet::bulletCollision(sf::Sprite &body,std::vector<sf::Sprite> &Bloczki,std::vector<Bullet> &Bullets){//tu bym mogl dac player p1
 
-  // std::vector<Bullet> vecBullets;
-    sf::FloatRect bodybound=body.getGlobalBounds();
-    sf::FloatRect bulletBound=this->getGlobalBounds();
-    if(bulletBound.intersects(bodybound)){
-        std::cout<<"strzal w kolano"<<std::endl;
-//    for (auto& bullet : vecBullets) {
-
-//        sf::FloatRect bulletBounds = bullet.getGlobalBounds();
-//        if (bulletBounds.intersects(bodybound)) {
-
-//            std::cout<<"STRZAL W KOLANO"<<std::endl;
-//            }
+//  // std::vector<Bullet> vecBullets;
+//    sf::FloatRect bodybound=body.getGlobalBounds();
+///    sf::FloatRect bulletBound=this->getGlobalBounds();
+//    if(bulletBound.intersects(bodybound)){
+//        std::cout<<"strzal w kolano"<<std::endl;
 //    }
-
-}
-}
+//    for(auto naboj=Bullets.begin();naboj!=Bullets.end();){
+//    for(auto &el:Bloczki){
+//        if(bulletBound.intersects(el.getGlobalBounds())){
+//            //usun element bulletow
+//            naboj=Bullets.erase(naboj);
+//            std::cout<<"kolizja"<<std::endl;
+//        }
+//    }
+//    }
+//}
 

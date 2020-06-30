@@ -33,29 +33,25 @@ public:
           {
            Bullet nowakula(bulletTexture,faceRight/*, body1.getGlobalBounds()*/ /*sf::FloatRect body*/);
            nowakula.SetPos(sf::Vector2f(getPosition().x+105,getPosition().y+77));//DO konsturkotra
-           vecBullets.emplace_back(nowakula);
-          // nowakula.bulletCollision(*this,vecBullets);
+           Bullets.emplace_back(nowakula);
         }
-        for(auto &el:vecBullets)
-        {
-            el.bulletCollision(*this);
-        }
+
         }
         if(numer_gracza==2){
             if(event.key.code==sf::Keyboard::RControl){
                 Bullet nowakula(bulletTexture,faceRight);
                 nowakula.SetPos(sf::Vector2f(getPosition().x-10, getPosition().y+100));
-                vecBullets.emplace_back(nowakula);
+                Bullets.emplace_back(nowakula);
             }
-            for(auto &el:vecBullets){
-                el.bulletCollision(*this);
-            }
+
         }
     }
 
+    void BulletCollision(std::vector<sf::Sprite> &bloczki);
+
 
     bool isFiring=false;
-    std::vector<Bullet> vecBullets;
+    std::vector<Bullet> Bullets;
 
 
 private:

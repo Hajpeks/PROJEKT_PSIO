@@ -9,8 +9,8 @@ SOURCES += \
         Menu.cpp \
         Player.cpp \
         Scene.cpp \
-        main.cpp \
-        Soldier.cpp
+        gameoveer.cpp \
+        main.cpp
 INCLUDEPATH += "C:/SFML/include"
 LIBS += -L"C:/SFML/lib"
 CONFIG(debug, debug|release){
@@ -27,4 +27,4 @@ HEADERS += \
     Menu.h \
     Player.h \
     Scene.h \
-    Soldier.h
+    gameoveer.h

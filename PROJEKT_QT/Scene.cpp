@@ -22,7 +22,7 @@ Scene::Scene(){
 //Zombie
     if (!zombieTexture.loadFromFile("Tekstury/NewZombie.png")) { throw("can't do shit"); }
     zombieTexture.setSrgb(true);
-//NABÓJ
+
 
 
 
@@ -30,6 +30,7 @@ Scene::Scene(){
     this->generate_bacground(Wooden_Backround,Blue_Background,Red_Background);
 
 }
+
 void Scene::generateBlocks()
 {
 
@@ -99,6 +100,7 @@ void Scene::generateBlocks()
     _Blocks.emplace_back(fence4);
 
 }
+
 void Scene::generate_bacground(sf::Texture &Wooden_Background, sf::Texture &Blue_Background, sf::Texture &Red_Background)
 {
     sf::Sprite Red;
@@ -121,11 +123,41 @@ void Scene::generate_bacground(sf::Texture &Wooden_Background, sf::Texture &Blue
 
 }
 
-void Scene::draw(sf::RenderWindow &window)
+void Scene::player_collision(std::vector<Bullet> &Bullets, Player &player,int &punkty_zycia){
+    sf::FloatRect playerbound=player.getGlobalBounds();
+    bool bufor=false;
+        for(auto naboj=Bullets.begin();naboj!=Bullets.end();naboj++){
+            bufor=false;
+            if(naboj->getGlobalBounds().intersects(playerbound)){
+                naboj=Bullets.erase(naboj);
+                while(punkty_zycia>0){
+                    punkty_zycia--;
+                    std::cout<<punkty_zycia<<std::endl;
+                }
+                bufor=true;
+            }
+
+        if(bufor==true){
+            naboj--;
+        }
+     }
+}
+//RESET HP
+void Scene::reset_hp(){
+    hp_Zombie=3;
+    hp_Soldier=3;
+}
+
+void Scene::drawing(sf::RenderWindow &window)
 {
+  //  sf::Sprite game_over;
 
     if(numer_mapy==0){
         window.draw(_background_screens[0]);
+        if(hp_Zombie||hp_Soldier==0){
+            GameOveer g;
+            g.drawing(window);
+        }
     }
     else if(numer_mapy==1){
             window.draw(_background_screens[1]);
@@ -139,12 +171,13 @@ void Scene::draw(sf::RenderWindow &window)
     }
 
 }
+
 void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
     //SOldier soldier(..);
     // zombie zombie(..);
 
         Player Soldier(&soldierTexture,sf::Vector2u(2,1),0.3,350.0f,1);
-        Player Zombie(&zombieTexture,sf::Vector2u(2,1),0.3,350,2);
+        Player Zombie(&zombieTexture,sf::Vector2u(2,1),0.3,350.0f,2);
 
 
         sf::Event event;
@@ -179,6 +212,7 @@ void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
                         wybor=false;
                         Zombie.ResetBody();
                         Soldier.ResetBody();
+                        scene.reset_hp();
                     }
                     if(event.key.code==sf::Keyboard::Enter)
                     {
@@ -205,11 +239,10 @@ void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
                         }
                     }
                         Soldier.UpdateAttack(event);
-                         Zombie.UpdateAttack(event);
+                        Zombie.UpdateAttack(event);
 
 
-//                        }
-//}
+
                 }
 
              }
@@ -219,37 +252,54 @@ void Scene::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
                  menu.draw(window);
             }
             if(scene.numer_mapy==0&&wybor!=false){
+               //Player management
                Soldier.Update(DeltaTime);
-//               Soldier.UpdateAttack();
-               Zombie.Update(DeltaTime);
                Soldier.UpdateCollisions(_Blocks,DeltaTime);
+               Soldier.BulletCollision(_Blocks);
+               player_collision(Soldier.Bullets,Zombie,hp_Zombie);
+
+               Zombie.Update(DeltaTime);
                Zombie.UpdateCollisions(_Blocks,DeltaTime);
+               Zombie.BulletCollision(_Blocks);
+               player_collision(Zombie.Bullets,Soldier,hp_Soldier);
 
 
-               scene.draw(window);
+               scene.drawing(window);
                Soldier.Drawing(window);
                Zombie.Drawing(window);
 
             }
             else if(scene.numer_mapy==1&& wybor!=false){
+                //Player management
                 Soldier.Update(DeltaTime);
-                Zombie.Update(DeltaTime);
                 Soldier.UpdateCollisions(_Blocks,DeltaTime);
+                Soldier.BulletCollision(_Blocks);
+                player_collision(Soldier.Bullets,Zombie,hp_Zombie);
+
+                Zombie.Update(DeltaTime);
                 Zombie.UpdateCollisions(_Blocks,DeltaTime);
+                Zombie.BulletCollision(_Blocks);
+                player_collision(Zombie.Bullets,Soldier,hp_Soldier);
 
                 window.clear();
-                scene.draw(window);
+                scene.drawing(window);
                 Soldier.Drawing(window);
                 Zombie.Drawing(window);
             }
             else if(scene.numer_mapy==2&&wybor!=false){
+
                 Soldier.Update(DeltaTime);
-                Zombie.Update(DeltaTime);
                 Soldier.UpdateCollisions(_Blocks,DeltaTime);
+                Soldier.BulletCollision(_Blocks);
+                player_collision(Soldier.Bullets,Zombie,hp_Zombie);
+
+                Zombie.Update(DeltaTime);
                 Zombie.UpdateCollisions(_Blocks,DeltaTime);
+                Zombie.BulletCollision(_Blocks);
+                player_collision(Zombie.Bullets,Soldier,hp_Soldier);
 
                 window.clear();
-                scene.draw(window);
+                scene.drawing(window);
                 Soldier.Drawing(window);
                 Zombie.Drawing(window);
             }
