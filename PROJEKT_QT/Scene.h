@@ -10,9 +10,12 @@ private:
 //Wektory
 std::vector<sf::Sprite> _background_screens;
 std::vector<sf::Sprite> _Blocks;
+
 //Tekstury
 sf::Texture Wooden_Backround,Red_Background,Blue_Background,Cactus,Fence;
 sf::Texture soldierTexture,zombieTexture;
+
+GameOveer g;
 
 
 //inne zmienne

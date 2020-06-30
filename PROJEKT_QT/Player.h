@@ -32,7 +32,12 @@ public:
         if(event.key.code==sf::Keyboard::LControl)
           {
            Bullet nowakula(bulletTexture,faceRight/*, body1.getGlobalBounds()*/ /*sf::FloatRect body*/);
-           nowakula.SetPos(sf::Vector2f(getPosition().x+105,getPosition().y+77));//DO konsturkotra
+           if(faceRight==true){
+           nowakula.SetPos(sf::Vector2f(getPosition().x+105,getPosition().y+77));
+           }//DO konsturkotra
+           else if(faceRight==false){
+                nowakula.SetPos(sf::Vector2f(getPosition().x,getPosition().y+77));
+           }
            Bullets.emplace_back(nowakula);
         }
 
@@ -40,7 +45,12 @@ public:
         if(numer_gracza==2){
             if(event.key.code==sf::Keyboard::RControl){
                 Bullet nowakula(bulletTexture,faceRight);
-                nowakula.SetPos(sf::Vector2f(getPosition().x-10, getPosition().y+100));
+                if(faceRight==true){
+                nowakula.SetPos(sf::Vector2f(getPosition().x+105, getPosition().y+100));
+                }
+                else if(faceRight==false){
+                    nowakula.SetPos(sf::Vector2f(getPosition().x, getPosition().y+100));
+                }
                 Bullets.emplace_back(nowakula);
             }
 

@@ -14,6 +14,6 @@ public:
     void fire();
 
 private:
-    float bulletspeed=3.0f;
+    float bulletspeed=2.5f;
 
 };

@@ -23,9 +23,6 @@ Scene::Scene(){
     if (!zombieTexture.loadFromFile("Tekstury/NewZombie.png")) { throw("can't do shit"); }
     zombieTexture.setSrgb(true);
 
-
-
-
     this->generateBlocks();
     this->generate_bacground(Wooden_Backround,Blue_Background,Red_Background);
 
@@ -130,10 +127,8 @@ void Scene::player_collision(std::vector<Bullet> &Bullets, Player &player,int &p
             bufor=false;
             if(naboj->getGlobalBounds().intersects(playerbound)){
                 naboj=Bullets.erase(naboj);
-                while(punkty_zycia>0){
-                    punkty_zycia--;
-                    std::cout<<punkty_zycia<<std::endl;
-                }
+                punkty_zycia--;
+                std::cout<<punkty_zycia<<std::endl;
                 bufor=true;
             }
 
@@ -154,16 +149,21 @@ void Scene::drawing(sf::RenderWindow &window)
 
     if(numer_mapy==0){
         window.draw(_background_screens[0]);
-        if(hp_Zombie||hp_Soldier==0){
-            GameOveer g;
+        if(hp_Zombie<0||hp_Soldier<0){
             g.drawing(window);
         }
     }
     else if(numer_mapy==1){
             window.draw(_background_screens[1]);
+            if(hp_Zombie<0||hp_Soldier<0){
+                g.drawing(window);
+            }
     }
     else if(numer_mapy==2){
         window.draw(_background_screens[2]);
+        if(hp_Zombie<0||hp_Soldier<0){
+            g.drawing(window);
+        }
     }
     for(auto &el2: _Blocks)
     {
