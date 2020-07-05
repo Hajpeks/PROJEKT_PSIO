@@ -22,9 +22,12 @@ Scene::Scene(){
 //Zombie
     if (!zombieTexture.loadFromFile("Tekstury/NewZombie.png")) { throw("can't do shit"); }
     zombieTexture.setSrgb(true);
+//HEARTH TEXTURE
+    if(!heartTexture.loadFromFile("Tekstury/heartTexture.png")){throw("can't load this");}
 
     this->generateBlocks();
     this->generate_bacground(Wooden_Backround,Blue_Background,Red_Background);
+    this->heartsDetection();
 
 }
 
@@ -120,17 +123,63 @@ void Scene::generate_bacground(sf::Texture &Wooden_Background, sf::Texture &Blue
 
 }
 
+void Scene::heartsDetection(){
+    sf::Sprite ones;
+    ones.setTexture(heartTexture);
+    ones.setPosition(10,20);
+    _SoldierHearts.emplace_back(ones);
+
+    sf::Sprite twos;
+    twos.setTexture(heartTexture);
+    twos.setPosition(90,20);
+    _SoldierHearts.emplace_back(twos);
+
+    sf::Sprite threes;
+    threes.setTexture(heartTexture);
+    threes.setPosition(170,20);
+    _SoldierHearts.emplace_back(threes);
+
+    sf::Sprite onez;
+    onez.setTexture(heartTexture);
+    onez.setPosition(1680,20);
+    _ZombieHearts.emplace_back(onez);
+
+    sf::Sprite twoz;
+    twoz.setTexture(heartTexture);
+    twoz.setPosition(1760,20);
+    _ZombieHearts.emplace_back(twoz);
+
+    sf::Sprite threez;
+    threez.setTexture(heartTexture);
+    threez.setPosition(1840,20);
+    _ZombieHearts.emplace_back(threez);
+
+}
+
 void Scene::player_collision(std::vector<Bullet> &Bullets, Player &player,int &punkty_zycia){
     sf::FloatRect playerbound=player.getGlobalBounds();
     bool bufor=false;
         for(auto naboj=Bullets.begin();naboj!=Bullets.end();naboj++){
             bufor=false;
             if(naboj->getGlobalBounds().intersects(playerbound)){
+            //    for(auto hp=_ZombieHearts.begin();hp!=_ZombieHearts.end();hp++){
                 naboj=Bullets.erase(naboj);
                 punkty_zycia--;
-                std::cout<<punkty_zycia<<std::endl;
+                if(punkty_zycia==hp_Zombie){
+                    std::cout<<"COS TUTAJ Z ZOMBIE ZYCIEM"<<std::endl;
+                    //JAK TU USUNAC _SoldierHearts.erase(...)
+
+
+                }
+                else if(punkty_zycia==hp_Soldier){
+                    std::cout<<"COS TUTAJ Z SOLDIER ZYCIEM"<<std::endl;
+                }
+               // std::cout<<punkty_zycia<<std::endl;
+                std::cout<<"ZYCIE ZOMBIE "<<hp_Zombie<<std::endl;
+                std::cout<<"ZYCIE ZOLNIERZA "<<hp_Soldier<<std::endl;
                 bufor=true;
             }
+            //}
 
         if(bufor==true){
             naboj--;
@@ -149,25 +198,31 @@ void Scene::drawing(sf::RenderWindow &window)
 
     if(numer_mapy==0){
         window.draw(_background_screens[0]);
-        if(hp_Zombie<0||hp_Soldier<0){
+        if(hp_Zombie<1||hp_Soldier<1){
             g.drawing(window);
         }
     }
     else if(numer_mapy==1){
             window.draw(_background_screens[1]);
-            if(hp_Zombie<0||hp_Soldier<0){
+            if(hp_Zombie<1||hp_Soldier<1){
                 g.drawing(window);
             }
     }
     else if(numer_mapy==2){
         window.draw(_background_screens[2]);
-        if(hp_Zombie<0||hp_Soldier<0){
+        if(hp_Zombie<1||hp_Soldier<1){
             g.drawing(window);
         }
     }
     for(auto &el2: _Blocks)
     {
         window.draw(el2);
+    }
+    for(auto &el:_SoldierHearts){
+        window.draw(el);
+    }
+    for(auto &el:_ZombieHearts){
+        window.draw(el);
     }
 
 }

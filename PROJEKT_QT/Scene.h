@@ -10,11 +10,16 @@ private:
 //Wektory
 std::vector<sf::Sprite> _background_screens;
 std::vector<sf::Sprite> _Blocks;
+std::vector<sf::Sprite> _SoldierHearts;
+std::vector<sf::Sprite> _ZombieHearts;
 
 //Tekstury
 sf::Texture Wooden_Backround,Red_Background,Blue_Background,Cactus,Fence;
 sf::Texture soldierTexture,zombieTexture;
 
+sf::Texture heartTexture;
+
+//GAME OVER VIEW
 GameOveer g;
 
 
@@ -34,6 +39,7 @@ public:
   // std::vector<sf::Sprite> genereteCactus(sf::Texture &Cactus);
    void generateBlocks();
    void generate_bacground(sf::Texture &Wooden_Backgorund,sf::Texture &Blue_Backgorund,sf::Texture &Red_Background);
+   void heartsDetection();
 
    //PlayerCollision
    void player_collision(std::vector<Bullet> &bullets,Player &player,int &punkty_zycia);
