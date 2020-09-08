@@ -13,13 +13,13 @@ Steruje się w menu za pomocą strzałek, enterem zatwierdzamy wybór, sterowani
   #### Sterowanie w grze:
   * gracz po lewej stronie steruje klawiszami W S A D 
   * gracz po lewej stronie strzela klawiszem LCTRL
-  *gracz po prawej stornie steruje klawiszami strzałek
-  *gracz po prawej stornie stsrzela klawiszem RCTRL
+  * gracz po prawej stornie steruje klawiszami strzałek
+  * gracz po prawej stornie stsrzela klawiszem RCTRL
   ##### Sterowanie po zwycięstwie:
-  *Escape by wrócić do wyboru map lub wyjsc z gry
+  * Escape by wrócić do wyboru map lub wyjsc z gry
   ###### Biblioteki wykorzystywane:
-  *iostream
-  *vector
-  *sfml
+  * iostream
+  * vector
+  * sfml
   
 Z wyrazami szacunku Hubert Pietrzak.
