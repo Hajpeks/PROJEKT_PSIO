@@ -83,7 +83,7 @@ void Game_Objects::loop(sf::RenderWindow &window,Scene &scene,Menu &menu){
               Soldier.UpdateB1(DeltaTime);
               Zombie.UpdateB2(DeltaTime);
               Soldier.UpdateColisions(TextureBlock,DeltaTime);
-            //  Zombie.UpdateColisions(TextureBlock,DeltaTime);
+              Zombie.UpdateColisions(TextureBlock,DeltaTime);
 
               scene.draw(window);
               Soldier.Draw(window);
