@@ -21,5 +21,9 @@ Steruje się w menu za pomocą strzałek, enterem zatwierdzamy wybór, sterowani
   * iostream
   * vector
   * sfml
+  ####### Źródła stron z pobieranymi grafikami:
+  * https://opengameart.org
+  * https://kenney.nl/assets/platformer-characters
+  Wszystkie grafiki wybierane ze strony kenny.nl były tymi darmowymi.
   
 Z wyrazami szacunku Hubert Pietrzak.
